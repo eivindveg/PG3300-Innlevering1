@@ -95,8 +95,8 @@
                 break;
             }
 
-            var t = new Stopwatch();
-            t.Start();
+            var timer = new Stopwatch();
+            timer.Start();
             while (!gg)
             {
                 if (Console.KeyAvailable)
@@ -132,41 +132,41 @@
                     }
                 }
 
-                if (pause || t.ElapsedMilliseconds < 100)
+                if (pause || timer.ElapsedMilliseconds < 100)
                 {
                     continue;
                 }
 
-                t.Restart();
+                timer.Restart();
                 var tail = new Coord(snake.First());
                 var head = new Coord(snake.Last());
-                var newH = new Coord(head);
+                var newHead = new Coord(head);
                 switch (newDir)
                 {
                     case 0:
-                        newH.Y -= 1;
+                        newHead.Y -= 1;
                         break;
                     case 1:
-                        newH.X += 1;
+                        newHead.X += 1;
                         break;
                     case 2:
-                        newH.Y += 1;
+                        newHead.Y += 1;
                         break;
                     default:
-                        newH.X -= 1;
+                        newHead.X -= 1;
                         break;
                 }
 
-                if (newH.X < 0 || newH.X >= boardW)
+                if (newHead.X < 0 || newHead.X >= boardW)
                 {
                     gg = true;
                 }
-                else if (newH.Y < 0 || newH.Y >= boardH)
+                else if (newHead.Y < 0 || newHead.Y >= boardH)
                 {
                     gg = true;
                 }
 
-                if (newH.X == app.X && newH.Y == app.Y)
+                if (newHead.X == app.X && newHead.Y == app.Y)
                 {
                     if (snake.Count + 1 >= boardW * boardH)
                     {
@@ -175,7 +175,7 @@
                     }
                     else
                     {
-                        while (true)
+                        for (;;)
                         {
                             app.X = rng.Next(0, boardW);
                             app.Y = rng.Next(0, boardH);
@@ -195,7 +195,7 @@
                 if (!inUse)
                 {
                     snake.RemoveAt(0);
-                    if (snake.Any(x => x.X == newH.X && x.Y == newH.Y))
+                    if (snake.Any(x => x.X == newHead.X && x.Y == newHead.Y))
                     {
                         gg = true;
                     }
@@ -222,9 +222,9 @@
                     inUse = false;
                 }
 
-                snake.Add(newH);
+                snake.Add(newHead);
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(newH.X, newH.Y);
+                Console.SetCursorPosition(newHead.X, newHead.Y);
                 Console.Write("@");
                 last = newDir;
             }
