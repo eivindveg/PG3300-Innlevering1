@@ -69,15 +69,11 @@
         {
             bool gg = false, pause = false, inUse = false;
             short newDir = 2; // 0 = up, 1 = right, 2 = down, 3 = left
-            short last = newDir;
+            var last = newDir;
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
             var rng = new Random();
             var app = new Coord();
-            var snake = new List<Coord>();
-            snake.Add(new Coord(10, 10));
-            snake.Add(new Coord(10, 10));
-            snake.Add(new Coord(10, 10));
-            snake.Add(new Coord(10, 10));
+            var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
             Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(10, 10);
