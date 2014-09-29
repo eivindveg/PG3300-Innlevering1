@@ -11,7 +11,7 @@ using System.Text;
 
 public class Snake
 {
-	private List<SnakeComponent> components
+	public List<SnakeComponent> components
 	{
 		get;
 		set;
@@ -28,10 +28,15 @@ public class Snake
 		throw new System.NotImplementedException();
 	}
 
-	public virtual Vector2D getHeadLocation()
+	public virtual Vector getHeadLocation()
 	{
 		throw new System.NotImplementedException();
 	}
+
+    public Snake()
+    {
+        
+    }
 
 }
 

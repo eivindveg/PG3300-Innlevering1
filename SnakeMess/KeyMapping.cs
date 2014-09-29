@@ -10,27 +10,27 @@ using System.Linq;
 using System.Text;
 
 
-public class KeyMapping<KeyBinding>
+public class KeyMapping
 {
-	private KeyBinding up
+	private ConsoleKey up
 	{
 		get;
 		set;
 	}
 
-	private KeyBinding down
+	private ConsoleKey down
 	{
 		get;
 		set;
 	}
 
-	private KeyBinding left
+	private ConsoleKey left
 	{
 		get;
 		set;
 	}
 
-	private KeyBinding right
+	private ConsoleKey right
 	{
 		get;
 		set;

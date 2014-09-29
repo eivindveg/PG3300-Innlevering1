@@ -11,7 +11,7 @@ using System.Text;
 
 public abstract class Component
 {
-	private Vector position
+	public Vector position
 	{
 		get;
 		set;
