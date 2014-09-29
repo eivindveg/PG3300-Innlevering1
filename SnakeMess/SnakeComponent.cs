@@ -17,5 +17,10 @@ public class SnakeComponent : Component
 		set;
 	}
 
+    public SnakeComponent(Vector position) : base(position)
+    {
+        
+    }
+
 }
 

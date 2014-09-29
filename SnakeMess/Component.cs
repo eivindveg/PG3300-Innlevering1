@@ -17,5 +17,10 @@ public abstract class Component
 		set;
 	}
 
+    public Component(Vector position)
+    {
+        this.position = position;
+    }
+
 }
 

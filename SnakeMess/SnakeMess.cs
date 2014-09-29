@@ -80,6 +80,7 @@ namespace SnakeMess
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
             var rng = new Random();
             var position = new Vector();
+            var app = new RedApple();
 
             // var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
             Console.CursorVisible = false;
@@ -88,9 +89,10 @@ namespace SnakeMess
             Console.Write("@");
             for (;;)
             {
-                app.X = rng.Next(0, board.dimension.x);
-                app.Y = rng.Next(0, board.dimension.y);
-                var spot = snake.All(i => i.X != app.X || i.Y != app.Y);
+                var x = rng.Next(0, board.dimension.x);
+                var y = rng.Next(0, board.dimension.y);
+                app.position = new Vector(x, y);
+                var spot = snake.components.All(i => i.position.x != app.position.x || i.position.y != app.position.y);
 
                 if (!spot)
                 {
@@ -98,7 +100,7 @@ namespace SnakeMess
                 }
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.SetCursorPosition(app.X, app.Y);
+                Console.SetCursorPosition(app.position.x, app.position.y);
                 Console.Write("$");
                 break;
             }
@@ -146,37 +148,37 @@ namespace SnakeMess
                 }
 
                 timer.Restart();
-                var tail = new Coord(snake.First());
-                var head = new Coord(snake.Last());
-                var newHead = new Coord(head);
+                var tail = snake.components.First();
+                var head = snake.components.Last();
+                var newHead = new Vector(head.position.x, head.position.y);
                 switch (newDir)
                 {
                     case 0:
-                        newHead.Y -= 1;
+                        newHead.y -= 1;
                         break;
                     case 1:
-                        newHead.X += 1;
+                        newHead.x += 1;
                         break;
                     case 2:
-                        newHead.Y += 1;
+                        newHead.y += 1;
                         break;
                     default:
-                        newHead.X -= 1;
+                        newHead.x -= 1;
                         break;
                 }
 
-                if (newHead.X < 0 || newHead.X >= boardW)
+                if (newHead.x < 0 || newHead.x >= boardW)
                 {
                     gg = true;
                 }
-                else if (newHead.Y < 0 || newHead.Y >= boardH)
+                else if (newHead.x < 0 || newHead.x >= boardH)
                 {
                     gg = true;
                 }
 
-                if (newHead.X == app.X && newHead.Y == app.Y)
+                if (newHead.x == app.position.x && newHead.y == app.position.y)
                 {
-                    if (snake.Count + 1 >= boardW * boardH)
+                    if (snake.components.Count + 1 >= boardW * boardH)
                     {
                         // No more room to place apples -- game over.
                         gg = true;
@@ -185,9 +187,10 @@ namespace SnakeMess
                     {
                         for (;;)
                         {
-                            app.X = rng.Next(0, boardW);
-                            app.Y = rng.Next(0, boardH);
-                            var found = snake.All(i => i.X != app.X || i.Y != app.Y);
+                            var x = rng.Next(0, boardW);
+                            var y = rng.Next(0, boardH);
+                            app.position = new Vector(x, y);
+                            var found = snake.components.All(i => i.position.x != app.position.x || i.position.y != app.position.y);
 
                             if (!found)
                             {
@@ -202,8 +205,8 @@ namespace SnakeMess
 
                 if (!inUse)
                 {
-                    snake.RemoveAt(0);
-                    if (snake.Any(x => x.X == newHead.X && x.Y == newHead.Y))
+                    snake.components.RemoveAt(0);
+                    if (snake.components.Any(x => x.position.x == newHead.x && x.position.y == newHead.y))
                     {
                         gg = true;
                     }
@@ -215,24 +218,24 @@ namespace SnakeMess
                 }
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(head.X, head.Y);
+                Console.SetCursorPosition(head.position.x, head.position.x);
                 Console.Write("O");
                 if (!inUse)
                 {
-                    Console.SetCursorPosition(tail.X, tail.Y);
+                    Console.SetCursorPosition(tail.position.x, tail.position.y);
                     Console.Write(" ");
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(app.X, app.Y);
+                    Console.SetCursorPosition(app.position.x, app.position.y);
                     Console.Write("$");
                     inUse = false;
                 }
 
-                snake.Add(newHead);
+                snake.components.Add(new SnakeComponent(newHead));
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(newHead.X, newHead.Y);
+                Console.SetCursorPosition(newHead.x, newHead.y);
                 Console.Write("@");
                 last = newDir;
             }
