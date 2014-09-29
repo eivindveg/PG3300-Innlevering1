@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///D:/DEVELOPMENT/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="ProjectPath = ..\SnakeMessModelsLib\SnakeMessModelsLib.csproj" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="TemplateFilePath = D:\DEVELOPMENT\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\DEVELOPMENT\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2014-09-29T15:16:50" Importance="Medium" Text="SnakeMessModels's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'SnakeMessModels::Vector' -  (Class) " />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Medium" Text="'SnakeMessModels::Vector' -  (Class) : success (file created) - D:\Development\Workspaces\PG3300\Innlevering1\SnakeMessModelsLib\GeneratedCode\Vector.cs" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="ProjectPath = ..\SnakeMessModelsLib\SnakeMessModelsLib.csproj" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="TemplateFilePath = D:\DEVELOPMENT\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\DEVELOPMENT\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Medium" Text="SnakeMessModels's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'SnakeMessModels::Vector' -  (Class) " />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="Diagnostic" Text="'SnakeMessModels::Vector' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2014-09-29T15:16:51" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
