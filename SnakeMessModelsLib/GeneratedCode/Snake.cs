@@ -11,7 +11,11 @@ using System.Text;
 
 public class Snake
 {
-	private List<SnakeComponent> components
+    public Player player
+    {
+        get; set; }
+
+    private List<SnakeComponent> components
 	{
 		get;
 		set;
@@ -28,10 +32,14 @@ public class Snake
 		throw new System.NotImplementedException();
 	}
 
-	public virtual Vector2D getHeadLocation()
+	public virtual Vector getHeadLocation()
 	{
 		throw new System.NotImplementedException();
 	}
 
+    public void SetPlayer(Player player)
+    {
+        this.player = player;
+    }
 }
 

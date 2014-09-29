@@ -36,5 +36,13 @@ public class Board
         this.snakes = snakes;
     }
 
+    private void PositionSnakes()
+    {
+        foreach (var snake in snakes)
+        {
+            
+        }
+    }
+
 }
 

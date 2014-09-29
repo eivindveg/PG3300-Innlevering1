@@ -29,5 +29,12 @@ public class Player
 		set;
 	}
 
+    public Player(int number, KeyMapping keyMapping)
+    {
+        this.score = 0;
+        this.snake = new Snake();
+        this.snake.SetPlayer(this);
+    }
+
 }
 
