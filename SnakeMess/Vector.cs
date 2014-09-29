@@ -23,10 +23,8 @@ public class Vector
 		set;
 	}
 
-    public Vector()
+    public Vector() : this(0,0)
     {
-        this.x = 0;
-        this.y = 0;
     }
 
     public Vector(int x, int y)
