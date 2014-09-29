@@ -11,7 +11,7 @@ using System.Text;
 
 public class MoveEvent
 {
-	private Vector2D location
+	private Vector location
 	{
 		get;
 		set;
