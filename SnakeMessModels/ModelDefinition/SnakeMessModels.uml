@@ -3,6 +3,12 @@
   dslVersion="1.0.0.0"
   Id="0efb52e2-ad2e-4c44-ad42-36f46dcfca66"
   name="SnakeMessModels" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="eda30b94-6e4f-4b4a-a017-2817ae392197"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3D::"
+      tag="ViewCode" />
+  </referencesInternal>
   <appliedStereotypesInternal>
     <stereotypeInstance
       Id="a1e98229-c960-43f0-ab0e-d919796c78d8"
@@ -1330,6 +1336,16 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="43005067-fb45-49f3-82e7-a9cabda3eba4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="73745389-28a2-4dbb-a6ac-9198f7405389"
+              LastKnownName="Apple"
+              LastKnownLocation="SnakeMessModels.uml" />
+          </generalization>
+        </generalsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1475,6 +1491,12 @@
         isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="24cd0d2d-87f2-4c8c-83cb-c806a6fcc2e3"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DComponent"
+            tag="ViewCode" />
+        </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
             Id="0892129f-7a9a-448a-8f14-7eb3d7ebc25a"
@@ -1499,7 +1521,7 @@
                 <propertyInstance
                   Id="ab31c54f-0f84-487b-b536-fb8ed2fc27f6"
                   name="IsStatic"
-                  value="false" />
+                  value="False" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
                 Id="c848470f-2e6e-426c-94d8-520e4fd8dd70">
@@ -1653,6 +1675,16 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="23adce8d-d245-493c-8746-3a08d8a3cc5d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="32da42c9-a1b6-4864-8814-3a6e5db72d0a"
+              LastKnownName="Component"
+              LastKnownLocation="SnakeMessModels.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="ac0aef48-b434-416f-a10a-139d0a0d0ccb"
@@ -1742,51 +1774,6 @@
       <undefinedType
         Id="f7187c21-b66e-4094-91bc-db1b581a03fc"
         name="SnakePart" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <enumeration
-        Id="c85de642-1246-41e0-b63f-109fdac229b4"
-        name="Enumeration1"
-        isAbstract="false"
-        isLeaf="false">
-        <appliedStereotypesInternal>
-          <stereotypeInstance
-            Id="a4fcb2e8-6537-4530-8a16-7919bfcd4e7c"
-            name="enum"
-            profile="CSharpProfile">
-            <propertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="5a7c9974-3a28-4266-bda7-4e077754568e">
-                <propertyInstance
-                  Id="29a585cf-b900-48a0-a541-96b99d9d28b8"
-                  name="ClrAttributes" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="19190ecf-b29f-4127-bfcd-e0253322e7a5">
-                <propertyInstance
-                  Id="f301de6e-bc67-4481-836d-ebdfb7260b50"
-                  name="BaseType"
-                  value="int" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="4d365d96-6f98-4af1-8260-b2e69159946d">
-                <propertyInstance
-                  Id="54f34f63-2935-4940-9f52-1a92ec70175e"
-                  name="PackageVisibility"
-                  value="internal" />
-              </stereotypeInstanceHasPropertyInstances>
-            </propertyInstances>
-          </stereotypeInstance>
-        </appliedStereotypesInternal>
-        <ownedLiterals>
-          <enumerationLiteral
-            Id="89f5cc8d-2037-410f-af68-a406c0e9fcaf"
-            name="HEAD" />
-          <enumerationLiteral
-            Id="cdf8d5d9-e7f2-497a-ad83-dd7b4a56753b"
-            name="TAIL" />
-        </ownedLiterals>
-      </enumeration>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -2524,6 +2511,12 @@
         isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a5adb51f-ab3d-4063-8c20-e7c58fd871e0"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DApple"
+            tag="ViewCode" />
+        </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
             Id="d65e90b6-d5fa-4303-b248-b4355e5d7081"
@@ -2548,7 +2541,7 @@
                 <propertyInstance
                   Id="db663db4-040c-4547-8b44-770a27fdb3ca"
                   name="IsStatic"
-                  value="false" />
+                  value="False" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
                 Id="a7367295-3329-435b-bc7d-1ae3590a1461">
@@ -2567,6 +2560,16 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="e3f0adb4-cdcd-4224-b578-09269a4fbaa8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="32da42c9-a1b6-4864-8814-3a6e5db72d0a"
+              LastKnownName="Component"
+              LastKnownLocation="SnakeMessModels.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="e5502e74-6261-40a3-acc3-207f5884d4dd"
@@ -2580,6 +2583,12 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a0d604f5-c0b6-4345-9c90-9adde5d56201"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DApple Member%3Dvalue"
+                tag="ViewCode" />
+            </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
                 Id="cb187296-fda9-4559-94ac-da3decdec9b1"
@@ -2597,7 +2606,7 @@
                     <propertyInstance
                       Id="1303f9bf-e382-48f9-8adf-eccb1616e779"
                       name="Get"
-                      value="none" />
+                      value="private" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
                     Id="6e21cd07-35fe-4d11-8a2d-f924d679dfc9">
@@ -2632,19 +2641,127 @@
                     <propertyInstance
                       Id="be4403c7-1c40-4987-8891-7fee511638ab"
                       name="Set"
-                      value="none" />
+                      value="private" />
                   </stereotypeInstanceHasPropertyInstances>
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f123bd7a-f38c-41b4-b6fc-9ce0e72a211b"
-                LastKnownName="int"
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
                 LastKnownLocation="SnakeMessModels.uml" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1974420f-343f-4b90-b163-0826431472aa"
+            name="Apple"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="148d60b9-1d7a-488a-854c-640c6949530c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DApple Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DVector)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2f6f6c29-f8f3-410a-a557-017a5445e63f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4bb4a4de-2bf3-4822-9bc7-04e5b9212881">
+                    <propertyInstance
+                      Id="100f13c5-be32-46ea-ae6e-8d8f4c99a489"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06d2458d-5401-44a8-b09f-066019d13d88">
+                    <propertyInstance
+                      Id="0fb0f6ca-8528-499d-9741-27e83113db25"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c55bb770-5ca1-4928-bf03-109f384d34ad">
+                    <propertyInstance
+                      Id="5d950120-80b6-4d0d-b71f-7d2538ca6f9f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61f1b45b-bcc7-469b-a538-53b335de2986">
+                    <propertyInstance
+                      Id="2172252e-da21-40c3-9412-43bac66ef839"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14be8817-118a-43d9-8bdb-164d74d7bc08">
+                    <propertyInstance
+                      Id="95cd2cd1-27bd-45e5-acdd-8e92b8c99ffe"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="973e288d-aa63-4a1d-837a-57029070cde8">
+                    <propertyInstance
+                      Id="c3101b11-897e-40af-b903-7b31d6141736"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="91c52576-c37c-4cd3-9db0-cb69b718e935"
+                  name="value"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f6b56513-996d-46a3-bca3-9800062d0eae"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DApple Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DVector)]) ParameterIdentifier%3Dvalue"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="SnakeMessModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="23b2622b-53a4-4797-8cef-fc7209690c58"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="aee936c7-e563-42a2-adee-16974067bb14"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DApple Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DVector)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="8e849a4d-f82a-436c-946e-2c2a85a6e7a6"
+                      LastKnownName="Vector"
+                      LastKnownLocation="SnakeMessModels.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2654,43 +2771,42 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ec8196b3-de7b-4ced-876b-243411b192e8"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FD:%2FDevelopment%2FWorkspaces%2FPG3300%2FInnlevering1%2FSnakeMess%2Fbin%2FDebug%2FSnakeMess.exe Type%3DVector"
+            tag="ViewCode" />
+        </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="e99b1205-5ce5-4b44-8963-9af709d22da3"
-            name="class"
+            Id="42c954da-fe1a-497b-accb-c2b8c6a209e9"
+            name="struct"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="b8019c03-9933-4739-9a87-8ca41beca104">
+                Id="60fb81e0-3517-4460-8943-883fc3813ae0">
                 <propertyInstance
-                  Id="ce332791-4531-48dc-bb4e-88562d142f62"
+                  Id="8fe8f3f2-a8ad-45a4-9b77-0bca4bb5a5cb"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="f01f4e37-0634-46de-b05d-ca2ff39474fd">
+                Id="a2f89163-5794-4b09-89b2-c46cadc4a782">
                 <propertyInstance
-                  Id="36d1aa42-f3f9-4b34-84e1-ecb1fb8eb7a7"
+                  Id="667abe28-48c6-4288-93c7-52ea0dd772b4"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="9ae2848a-8bf6-4855-a06c-5101f7152e2d">
+                Id="4416cfbe-afb3-47e5-b2b5-78d0e1430c3b">
                 <propertyInstance
-                  Id="025e9623-be8f-4c4f-a318-b9574171e626"
-                  name="IsStatic"
-                  value="false" />
-              </stereotypeInstanceHasPropertyInstances>
-              <stereotypeInstanceHasPropertyInstances
-                Id="75b38375-d957-49e0-bd4b-b8a47577c158">
-                <propertyInstance
-                  Id="290386d9-977f-4114-a6f9-1c378f4145e0"
+                  Id="aa7ff4f2-774a-474d-9874-6eedd903bf7c"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="4bc03419-bbf6-4979-b2fd-dd0cb9b1e3aa">
+                Id="0fb5f884-3c7c-4784-bde0-e835aa27b550">
                 <propertyInstance
-                  Id="595c6605-2b03-42f2-aa5a-902975541c9c"
+                  Id="40210f21-e2dd-46b0-bb47-264a95109e88"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>

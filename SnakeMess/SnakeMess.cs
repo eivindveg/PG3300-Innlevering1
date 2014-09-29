@@ -89,10 +89,10 @@ namespace SnakeMess
             Console.Write("@");
             for (;;)
             {
-                var x = rng.Next(0, board.dimension.x);
-                var y = rng.Next(0, board.dimension.y);
+                var x = rng.Next(0, board.Dimension.x);
+                var y = rng.Next(0, board.Dimension.y);
                 app = new RedApple(new Vector(x, y));
-                var spot = snake.components.All(i => i.position.x != app.position.x || i.position.y != app.position.y);
+                var spot = snake.components.All(i => i.position.x != app.Position.x || i.position.y != app.Position.y);
 
                 if (!spot)
                 {
@@ -100,7 +100,7 @@ namespace SnakeMess
                 }
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.SetCursorPosition(app.position.x, app.position.y);
+                Console.SetCursorPosition(app.Position.x, app.Position.y);
                 Console.Write("$");
                 break;
             }
@@ -176,7 +176,7 @@ namespace SnakeMess
                     gg = true;
                 }
 
-                if (newHead.x == app.position.x && newHead.y == app.position.y)
+                if (newHead.x == app.Position.x && newHead.y == app.Position.y)
                 {
                     if (snake.components.Count + 1 >= boardW * boardH)
                     {
@@ -189,8 +189,8 @@ namespace SnakeMess
                         {
                             var x = rng.Next(0, boardW);
                             var y = rng.Next(0, boardH);
-                            app.position = new Vector(x, y);
-                            var found = snake.components.All(i => i.position.x != app.position.x || i.position.y != app.position.y);
+                            app.Position = new Vector(x, y);
+                            var found = snake.components.All(i => i.position.x != app.Position.x || i.position.y != app.Position.y);
 
                             if (!found)
                             {
@@ -228,7 +228,7 @@ namespace SnakeMess
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(app.position.x, app.position.y);
+                    Console.SetCursorPosition(app.Position.x, app.Position.y);
                     Console.Write("$");
                     inUse = false;
                 }
