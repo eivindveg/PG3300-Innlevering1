@@ -41,7 +41,7 @@ namespace SnakeMess
             {
                 var x = rng.Next(0, board.Dimension.Y);
                 var y = rng.Next(0, board.Dimension.Y);
-                app = new RedApple(new Vector(x, y));
+                app = new Apple(EdibleType.RedApple, new Vector(x, y));
                 var spot = snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
 
                 if (!spot)
