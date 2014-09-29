@@ -45,6 +45,7 @@ public class Snake : ICollideable
         {
             
         }
+        return true;
     }
 }
 

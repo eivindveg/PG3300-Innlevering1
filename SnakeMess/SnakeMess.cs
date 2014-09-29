@@ -80,7 +80,7 @@ namespace SnakeMess
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
             var rng = new Random();
             var position = new Vector();
-            var app = new RedApple();
+            Apple app;
 
             // var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
             Console.CursorVisible = false;
@@ -91,7 +91,7 @@ namespace SnakeMess
             {
                 var x = rng.Next(0, board.dimension.x);
                 var y = rng.Next(0, board.dimension.y);
-                app.position = new Vector(x, y);
+                app = new RedApple(new Vector(x, y));
                 var spot = snake.components.All(i => i.position.x != app.position.x || i.position.y != app.position.y);
 
                 if (!spot)

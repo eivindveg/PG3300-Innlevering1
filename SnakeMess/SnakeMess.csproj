@@ -46,7 +46,6 @@
     <Compile Include="Apple.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Component.cs" />
-    <Compile Include="Dimension.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="SnakePart.cs" />
     <Compile Include="Game.cs" />
