@@ -30,5 +30,11 @@ public class Board
 		set;
 	}
 
+    public Board(Vector dimension, List<Snake> snakes)
+    {
+        this.dimension = dimension;
+        this.snakes = snakes;
+    }
+
 }
 
