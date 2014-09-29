@@ -11,7 +11,13 @@ using System.Text;
 
 public class Player
 {
-	private int score
+    public int id
+    {
+        get;
+        set;
+    }
+
+    private int score
 	{
 		get;
 		set;
@@ -28,6 +34,11 @@ public class Player
 		get;
 		set;
 	}
+
+    public Player(int id)
+    {
+        this.id = id;
+    }
 
 }
 

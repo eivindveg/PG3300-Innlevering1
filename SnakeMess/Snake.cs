@@ -9,13 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Snake
+public class Snake : ICollideable
 {
 	public List<SnakeComponent> components
 	{
 		get;
 		set;
 	}
+
+    public Player player { get; set; }
 
 	private Direction direction
 	{
@@ -35,8 +37,14 @@ public class Snake
 
     public Snake()
     {
-        
     }
 
+    public bool IsInPosition(Vector position)
+    {
+        foreach (var component in components)
+        {
+            
+        }
+    }
 }
 

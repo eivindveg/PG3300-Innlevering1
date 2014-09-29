@@ -1,4 +1,6 @@
-﻿namespace SnakeMess
+﻿using System.Collections;
+
+namespace SnakeMess
 {
     using System;
     using System.Collections.Generic;
@@ -70,18 +72,24 @@
             bool gg = false, pause = false, inUse = false;
             short newDir = 2; // 0 = up, 1 = right, 2 = down, 3 = left
             var last = newDir;
+            var dimension = new Vector(Console.WindowWidth, Console.LargestWindowHeight);
+            var snakes = new List<Snake>();
+            var snake = new Snake();
+            snakes.Add(snake);
+            var board = new Board(dimension, snakes);
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
             var rng = new Random();
-            var app = new Coord();
-            var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
+            var position = new Vector();
+
+            // var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
             Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.SetCursorPosition(10, 10);
             Console.Write("@");
-            while (true)
+            for (;;)
             {
-                app.X = rng.Next(0, boardW);
-                app.Y = rng.Next(0, boardH);
+                app.X = rng.Next(0, board.dimension.x);
+                app.Y = rng.Next(0, board.dimension.y);
                 var spot = snake.All(i => i.X != app.X || i.Y != app.Y);
 
                 if (!spot)

@@ -11,21 +11,9 @@ using System.Text;
 
 public struct Vector
 {
-	public int x
-	{
-		get;
-		set;
-	}
+    public int x;
 
-	private int y
-	{
-		get;
-		set;
-	}
-
-    public Vector() : this(0,0)
-    {
-    }
+	public int y;
 
     public Vector(int x, int y)
     {

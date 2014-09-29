@@ -11,7 +11,7 @@ using System.Text;
 
 public interface ICollideable 
 {
-	boolean IsInPosition(object Vector2D location);
+	bool IsInPosition(Vector location);
 
 }
 
