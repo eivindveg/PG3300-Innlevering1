@@ -4,6 +4,8 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using System.Windows.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
