@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratedCode\Apple.cs" />
     <Compile Include="GeneratedCode\Board.cs" />
     <Compile Include="GeneratedCode\Component.cs" />
     <Compile Include="GeneratedCode\Dimension.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="GeneratedCode\RedApple.cs" />
     <Compile Include="GeneratedCode\Snake.cs" />
     <Compile Include="GeneratedCode\SnakeComponent.cs" />
+    <Compile Include="GeneratedCode\Vector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

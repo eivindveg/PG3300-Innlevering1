@@ -43,8 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apple.cs" />
+    <Compile Include="Board.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="Dimension.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="SnakePart.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="ICollideable.cs" />
+    <Compile Include="KeyMapping.cs" />
+    <Compile Include="MoveEvent.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="RedApple.cs" />
+    <Compile Include="Snake.cs" />
+    <Compile Include="SnakeComponent.cs" />
     <Compile Include="SnakeMess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
