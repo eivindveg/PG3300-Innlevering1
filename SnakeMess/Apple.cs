@@ -17,7 +17,7 @@ public abstract class Apple : Component
 		set;
 	}
 
-    public Apple()
+    protected Apple(int value, Vector position) : base(position)
     {
         this.value = value;
     }

@@ -11,5 +11,10 @@ using System.Text;
 
 public class RedApple : Apple
 {
+    private const int VALUE = 10;
+
+    public RedApple(Vector position) : base(VALUE, position)
+    {   
+    }
 }
 
