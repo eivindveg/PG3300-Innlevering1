@@ -9,27 +9,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class KeyMapping
+
+public class KeyMapping<KeyBinding>
 {
-	private Key up
+	private KeyBinding up
 	{
 		get;
 		set;
 	}
 
-	private Key down
+	private KeyBinding down
 	{
 		get;
 		set;
 	}
 
-	private Key left
+	private KeyBinding left
 	{
 		get;
 		set;
 	}
 
-	private Key right
+	private KeyBinding right
 	{
 		get;
 		set;
