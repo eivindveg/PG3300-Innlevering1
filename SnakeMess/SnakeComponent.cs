@@ -12,15 +12,6 @@
     /// </summary>
     public class SnakeComponent : Component
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SnakeComponent"/> class.
-        /// </summary>
-        /// <param name="position">
-        /// The position.
-        /// </param>
-        /// <param name="type">
-        /// The type.
-        /// </param>
         public SnakeComponent(Vector position, SnakePart type) : base(position)
         {
             Type = type;
@@ -29,6 +20,6 @@
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
-        private SnakePart Type { get; set; }
+        public SnakePart Type { get; private set; }
     }
 }
