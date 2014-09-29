@@ -9,7 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class RedApple
+public class RedApple : Apple
 {
+
+    public const int VALUE = 10;
+
+    public RedApple(Vector position) : base(VALUE, position)
+    {
+        
+    }
+
 }
 

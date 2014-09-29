@@ -9,13 +9,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public abstract class Apple
+public abstract class Apple : Component
 {
 	private int value
 	{
 		get;
 		set;
 	}
+
+    protected Apple(int value, Vector position)
+    {
+        this.value = value;
+        base.position = position;
+    }
 
 }
 
