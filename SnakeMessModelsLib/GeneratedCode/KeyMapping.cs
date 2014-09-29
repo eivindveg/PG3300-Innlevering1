@@ -12,25 +12,25 @@ using System.Windows.Input;
 
 public class KeyMapping
 {
-	private Key up
+	private ConsoleKey up
 	{
 		get;
 		set;
 	}
 
-	private Key down
+	private ConsoleKey down
 	{
 		get;
 		set;
 	}
 
-	private Key left
+	private ConsoleKey left
 	{
 		get;
 		set;
 	}
 
-	private Key right
+	private ConsoleKey right
 	{
 		get;
 		set;
