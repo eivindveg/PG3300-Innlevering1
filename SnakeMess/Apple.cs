@@ -1,10 +1,8 @@
-﻿using System.Dynamic;
-
-namespace SnakeMess
+﻿namespace SnakeMess
 {
     public class Apple : Component
     {
-        protected Apple(EdibleType type, Vector position) : base(position)
+        public Apple(EdibleType type, Vector position) : base(position)
         {
             Type = type;
         }

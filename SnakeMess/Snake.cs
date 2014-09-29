@@ -6,8 +6,11 @@
 
     public class Snake : ICollideable
     {
-        public Snake()
+        public const int StartLength = 4;
+
+        public Snake(Direction direction, Vector position)
         {
+            // TODO CREATE SNAKE TRAIN
         }
 
         public List<SnakeComponent> Components { get; set; }

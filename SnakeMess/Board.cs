@@ -21,14 +21,20 @@
         /// <param name="dimension">
         /// The dimension.
         /// </param>
-        /// <param name="snakes">
-        /// The snakes.
+        /// <param name="players">
+        /// The players.
         /// </param>
-        public Board(Vector dimension, List<Snake> snakes)
+        public Board(Vector dimension, List<Player> players)
         {
             Dimension = dimension;
-            Snakes = snakes;
+            Players = players;
             PositionSnakes();
+        }
+
+        public Board(Vector dimension, Player player)
+        {
+            Dimension = dimension;
+            Players = new List<Player> {player};
         }
 
         /// <summary>
@@ -42,64 +48,45 @@
         public List<Apple> Apples { get; set; }
 
         /// <summary>
-        /// Gets or sets the snakes.
+        /// Gets or sets the players.
         /// </summary>
-        public List<Snake> Snakes { get; set; }
+        public List<Player> Players { get; set; }
 
         /// <summary>
-        /// The Position snakes.
+        /// The Position players.
         /// </summary>
         private void PositionSnakes()
         {
-            foreach (var snake in Snakes)
+            foreach (var player in Players)
             {
-                var position = GetPositionFor(snake.player.id);
-                Component head = snake.components.First();
-                head.Position = position;
+                var position = new Vector();
+                var direction = Direction.Right;
+                switch (player.Id)
+                {
+                    case 1:
+                        position.X = Dimension.X / 4;
+                        position.Y = Dimension.Y / 4;
+                        direction = Direction.Right;
+                        break;
+                    case 2:
+                        position.X = Dimension.X - (Dimension.X / 4);
+                        position.Y = Dimension.Y / 4;
+                        direction = Direction.Left;
+                        break;
+                    case 3:
+                        position.X = Dimension.X / 4;
+                        position.Y = Dimension.Y - (Dimension.Y / 4);
+                        direction = Direction.Right;
+                        break;
+                    case 4:
+                        position.X = Dimension.X - (Dimension.X / 4);
+                        position.Y = Dimension.Y - (Dimension.Y / 4);
+                        direction = Direction.Up;
+                        break;
+                }
+                var snake = new Snake(direction, position);
+                player.Snake = snake;
             }
-        }
-
-        /// <summary>
-        /// The get Position for.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Vector"/>.
-        /// </returns>
-        /// <exception cref="Exception">
-        /// If trying to find a player that cannot exist.
-        /// </exception>
-        private Vector GetPositionFor(int id)
-        {
-            if (id <= 0 || id > 4)
-            {
-                throw new Exception("Unsupported number of players!");
-            }
-
-            var position = new Vector();
-            switch (id)
-            {
-                case 1:
-                    position.x = Dimension.x / 4;
-                    position.y = Dimension.y / 4;
-                    break;
-                case 2:
-                    position.x = Dimension.x - (Dimension.x / 4);
-                    position.y = Dimension.y / 4;
-                    break;
-                case 3:
-                    position.x = Dimension.x / 4;
-                    position.y = Dimension.y - (Dimension.y / 4);
-                    break;
-                case 4:
-                    position.x = Dimension.x - (Dimension.x / 4);
-                    position.y = Dimension.y - (Dimension.y / 4);
-                    break;
-            }
-
-            return position;
         }
     }
 }
