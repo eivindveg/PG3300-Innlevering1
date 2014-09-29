@@ -17,5 +17,9 @@ public abstract class Apple : Component
 		set;
 	}
 
+    public Apple()
+    {
+        this.value = value;
+    }
 }
 
