@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Vector
+public struct Vector
 {
-	private int x
+	public int x
 	{
 		get;
 		set;
