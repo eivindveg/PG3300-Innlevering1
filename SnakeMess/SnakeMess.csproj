@@ -48,7 +48,6 @@
     <Compile Include="Component.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="EdibleType.cs" />
-    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="SnakePart.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ICollideable.cs" />
