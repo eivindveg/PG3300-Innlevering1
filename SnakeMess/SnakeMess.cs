@@ -158,16 +158,15 @@
                     Console.SetCursorPosition(tail.Position.X, tail.Position.Y);
                     Console.Write(" ");
                 }
-                else
+                
+                foreach (var apple in board.Apples)
                 {
-                    foreach (var apple in board.Apples)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
-                        Console.Write("$");
-                        inUse = false;
-                    }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
+                    Console.Write("$");
+                    inUse = false;
                 }
+                
 
                 player.Snake.Add(new SnakeComponent(newHead, SnakePart.Head));
                 Console.ForegroundColor = ConsoleColor.Green;
