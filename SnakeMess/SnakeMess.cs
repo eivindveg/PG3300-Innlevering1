@@ -107,21 +107,18 @@
 
                 gg = board.PositionOutOfBounds(newHead);
 
-                foreach (var apple in board.Apples)
+                foreach (var apple in board.Apples.Where(apple => newHead == apple.Position))
                 {
-                    if (newHead == apple.Position)
+                    board.RemoveApple(apple);
+                    if (player.Snake.Count + 1 >= boardW * boardH)
                     {
-                        board.RemoveApple(apple);
-                        if (player.Snake.Count + 1 >= boardW * boardH)
-                        {
-                            // No more room to place apples -- game over.
-                            gg = true;
-                        }
-                        else
-                        {
-                            board.PlaceApple();
-                            player.Snake.Grow();
-                        }
+                        // No more room to place apples -- game over.
+                        gg = true;
+                    }
+                    else
+                    {
+                        board.PlaceApple();
+                        player.Snake.Grow();
                     }
                 }
 
