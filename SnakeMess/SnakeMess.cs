@@ -37,7 +37,7 @@
                 var x = rng.Next(0, board.Dimension.Y);
                 var y = rng.Next(0, board.Dimension.Y);
                 app = new Apple(EdibleType.RedApple, new Vector(x, y));
-                var spot = player.Snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
+                var spot = player.Snake.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
 
                 if (!spot)
                 {
@@ -93,22 +93,22 @@
                 }
 
                 timer.Restart();
-                var tail = player.Snake.Components.First();
-                var head = player.Snake.Components.Last();
+                var tail = player.Snake.First();
+                var head = player.Snake.Last();
                 var newHead = new Vector(head.Position.X, head.Position.Y);
                 switch (newDir)
                 {
                     case 0:
-                        newHead.Y -= 1;
+                        newHead = newHead - new Vector(0,1);
                         break;
                     case 1:
-                        newHead.X += 1;
+                        newHead = newHead + new Vector(1, 0);
                         break;
                     case 2:
-                        newHead.Y += 1;
+                        newHead = newHead + new Vector(0, 1);
                         break;
                     default:
-                        newHead.X -= 1;
+                        newHead = newHead - new Vector(1, 0);
                         break;
                 }
 
@@ -123,7 +123,7 @@
 
                 if (newHead.X == app.Position.X && newHead.Y == app.Position.Y)
                 {
-                    if (player.Snake.Components.Count + 1 >= boardW * boardH)
+                    if (player.Snake.Count + 1 >= boardW * boardH)
                     {
                         // No more room to place apples -- game over.
                         gg = true;
@@ -135,7 +135,7 @@
                             var x = rng.Next(0, boardW);
                             var y = rng.Next(0, boardH);
                             app.Position = new Vector(x, y);
-                            var found = player.Snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
+                            var found = player.Snake.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
 
                             if (!found)
                             {
@@ -150,8 +150,8 @@
 
                 if (!inUse)
                 {
-                    player.Snake.Components.RemoveAt(0);
-                    if (player.Snake.Components.Any(x => x.Position.X == newHead.X && x.Position.Y == newHead.Y))
+                    player.Snake.RemoveAt(0);
+                    if (player.Snake.Any(x => x.Position.X == newHead.X && x.Position.Y == newHead.Y))
                     {
                         gg = true;
                     }
@@ -178,7 +178,7 @@
                     inUse = false;
                 }
 
-                player.Snake.Components.Add(new SnakeComponent(newHead, SnakePart.Head));
+                player.Snake.Add(new SnakeComponent(newHead, SnakePart.Head));
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.SetCursorPosition(newHead.X, newHead.Y);
                 Console.Write("@");

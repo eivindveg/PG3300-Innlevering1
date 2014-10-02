@@ -1,6 +1,7 @@
 ﻿namespace SnakeMess
 {
     using System;
+    using System.CodeDom;
     using System.CodeDom.Compiler;
     using System.Collections;
     using System.Collections.Generic;
@@ -15,9 +16,8 @@
         {
             // TODO CREATE SNAKE TRAIN
             this.Add(new SnakeComponent(position, SnakePart.Head));
-            
 
-            while(this.Count() <= StartLength)
+            while (this.Count() < StartLength)
             {
                 position = Vector.DirectlyBehind(direction, position);
                 this.Add(new SnakeComponent(position, SnakePart.Tail));
@@ -32,11 +32,19 @@
         public virtual void Move()
         {
             throw new NotImplementedException();
+            //Create temp for head and last tail
+            //Move head forward, move last tail to old head
+            var oldHead = this.GetHeadLocation();
+            var oldLastTail = this.Last();
+            this.First().Position = Vector.DirectlyAhead(Direction, this.First().Position);
+            this.Remove(this.Last());
+            this.Insert(1, oldLastTail);
+
         }
 
         public virtual Vector GetHeadLocation()
         {
-            throw new NotImplementedException();
+            return this.First().Position;
         }
 
         public bool IsInPosition(Vector position)

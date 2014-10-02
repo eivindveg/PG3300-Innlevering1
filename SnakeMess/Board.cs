@@ -34,7 +34,11 @@
         public Board(Vector dimension, Player player)
         {
             Dimension = dimension;
-            Players = new List<Player> {player};
+            Players = new List<Player>
+                          {
+                              player
+                          };
+            this.PositionSnakes();
         }
 
         /// <summary>
@@ -42,14 +46,8 @@
         /// </summary>
         public Vector Dimension { get; private set; }
 
-        /// <summary>
-        /// Gets or sets the Apples.
-        /// </summary>
         public List<Apple> Apples { get; set; }
 
-        /// <summary>
-        /// Gets or sets the players.
-        /// </summary>
         public List<Player> Players { get; set; }
 
         /// <summary>
@@ -64,23 +62,19 @@
                 switch (player.Id)
                 {
                     case 1:
-                        position.X = Dimension.X / 4;
-                        position.Y = Dimension.Y / 4;
+                        position = new Vector(Dimension.X / 4, Dimension.Y / 4);
                         direction = Direction.Right;
                         break;
                     case 2:
-                        position.X = Dimension.X - (Dimension.X / 4);
-                        position.Y = Dimension.Y / 4;
+                        position = new Vector(Dimension.X - (Dimension.X / 4), Dimension.Y / 4);
                         direction = Direction.Left;
                         break;
                     case 3:
-                        position.X = Dimension.X / 4;
-                        position.Y = Dimension.Y - (Dimension.Y / 4);
+                        position = new Vector(Dimension.X / 4, Dimension.Y - (Dimension.Y / 4));
                         direction = Direction.Right;
                         break;
                     case 4:
-                        position.X = Dimension.X - (Dimension.X / 4);
-                        position.Y = Dimension.Y - (Dimension.Y / 4);
+                        position = new Vector(Dimension.X - (Dimension.X / 4), Dimension.Y - (Dimension.Y / 4));
                         direction = Direction.Up;
                         break;
                 }
