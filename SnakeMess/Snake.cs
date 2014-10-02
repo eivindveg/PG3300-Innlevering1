@@ -45,7 +45,7 @@ namespace SnakeMess
 
         public virtual void Grow()
         {
-            this.Add(new SnakeComponent(this.First().Position, SnakePart.Tail));
+            this.Add(new SnakeComponent(this.Last().Position, SnakePart.Tail));
         }
 
         public virtual Vector GetHeadLocation()

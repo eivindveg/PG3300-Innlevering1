@@ -10,7 +10,7 @@
         public static void Main(string[] arguments)
         {
             bool gg = false, pause = false, inUse = false;
-            var dimension = new Vector(Console.WindowWidth, Console.LargestWindowHeight);
+            var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
             Debug.WriteLine(dimension);
             var player = new Player(1);
             var board = new Board(dimension, player);
@@ -27,7 +27,7 @@
             Console.Write("@");
              */
 
-            var applePosition = board.PlaceApple();
+            board.PlaceApple();
 
             /*
             Console.ForegroundColor = ConsoleColor.Red;
@@ -99,6 +99,7 @@
                         if (localPlayer.Snake.Count + 1 >= boardW * boardH)
                         {
                             // No more room to place apples -- game over.
+                            Debug.WriteLine("Good game!");
                             gg = true;
                         }
                         else
@@ -108,9 +109,20 @@
                         }
 
                         // player.Snake.RemoveAt(0);
-                        if (localPlayer.Snake.Any(component => component.Position == headLocation))
+
+                    }
+                    foreach (SnakeComponent component in localPlayer.Snake)
+                    {
+                        if (component.Type == SnakePart.Head)
+                        {
+                            continue;
+                        }
+
+                        if (component.Position == headLocation)
                         {
                             gg = true;
+                            Debug.WriteLine("You fail!");
+                            break;
                         }
                     }
                 }
