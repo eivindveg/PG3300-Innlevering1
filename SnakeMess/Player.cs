@@ -1,22 +1,27 @@
-﻿using System;
-
-namespace SnakeMess
+﻿namespace SnakeMess
 {
+    using System;
+    using System.Diagnostics;
+
     public class Player
     {
+        private readonly KeyMapping keyMap;
+
         public Player(int id)
         {
             Id = id;
-            if (id == 1)
-            {
-                Color = ConsoleColor.Green;
-            }
-            else if (id == 2)
-            {
-                Color = ConsoleColor.Blue;
-            }
 
+            switch (id)
+            {
+                case 1:
+                    keyMap = new KeyMapping(ConsoleKey.UpArrow, ConsoleKey.DownArrow, ConsoleKey.LeftArrow, ConsoleKey.RightArrow);
+                    break;
+                case 2:
+                    keyMap = new KeyMapping(ConsoleKey.W, ConsoleKey.S, ConsoleKey.A, ConsoleKey.D);
+                    break;
+            }
         }
+
 
         public Snake Snake { get; set; }
 
@@ -26,6 +31,30 @@ namespace SnakeMess
 
         private KeyMapping KeyMap { get; set; }
 
-        public ConsoleColor Color { get; set; }
+        public void KeyPushedCheck()
+        {
+            if (!Console.KeyAvailable)
+            {
+                return;
+            }
+
+            var keyPushed = Console.ReadKey(true);
+            if (keyPushed.Equals(this.keyMap.Up))
+            {
+                Debug.Write("Up");
+            }
+            else if (keyPushed.Equals(this.keyMap.Down))
+            {
+                Debug.Write("Down");
+            }
+            else if (keyPushed.Equals(this.keyMap.Left))
+            {
+                Debug.Write("Left");
+            }
+            else if (keyPushed.Equals(this.keyMap.Left))
+            {
+                Debug.Write("Right");
+            }
+        }
     }
 }
