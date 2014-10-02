@@ -31,10 +31,15 @@ namespace SnakeMess
         {
             // Create temp for head and last tail
             // Move head forward, move last tail to old head
-            var oldLastTail = this.First();
-            this.Last().Position = Vector.DirectlyAhead(Direction, this.Last().Position);
-            this.Remove(this.First());
-            this.Insert(this.Count(), oldLastTail);
+            var oldLastTail = this.Last();
+            this.Remove(oldLastTail);
+            oldLastTail.Position = this.First().Position;
+            this.Insert(1, oldLastTail);
+            this.First().Position = Vector.DirectlyAhead(Direction, this.First().Position);
+            
+            /*
+            this.Insert(1, oldLastTail);
+             */
 
         }
 
@@ -46,6 +51,20 @@ namespace SnakeMess
         public virtual Vector GetHeadLocation()
         {
             return this.First().Position;
+        }
+
+        public virtual List<Vector> GetTailPositions()
+        {
+            var returnList = new List<Vector>();
+            var headLocation = GetHeadLocation();
+            foreach (var component in this)
+            {
+                if (component.Position != headLocation)
+                {
+                    returnList.Add(component.Position);
+                }  
+            }
+            return returnList;
         }
 
         public bool IsInPosition(Vector position)

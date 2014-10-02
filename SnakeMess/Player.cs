@@ -33,30 +33,24 @@
 
         private KeyMapping KeyMap { get; set; }
 
-        public void KeyPushedCheck()
+        public void KeyPushedCheck(ConsoleKey key)
         {
-            if (!Console.KeyAvailable)
-            {
-                return;
-            }
-
-            var keyPushed = Console.ReadKey(true);
-            if (keyPushed.Key == KeyMap.Up && Snake.Direction != Direction.Down)
+            if (key == KeyMap.Up && Snake.Direction != Direction.Down)
             {
                 Snake.Direction = Direction.Up;
                 Debug.Write("Up");
             }
-            else if (keyPushed.Key == KeyMap.Down && Snake.Direction != Direction.Up)
+            else if (key == KeyMap.Down && Snake.Direction != Direction.Up)
             {
                 Snake.Direction = Direction.Down;
                 Debug.Write("Down");
             }
-            else if (keyPushed.Key == KeyMap.Left && Snake.Direction != Direction.Right)
+            else if (key == KeyMap.Left && Snake.Direction != Direction.Right)
             {
                 Snake.Direction = Direction.Left;
                 Debug.Write("Left");
             }
-            else if (keyPushed.Key == KeyMap.Right && Snake.Direction != Direction.Right)
+            else if (key == KeyMap.Right && Snake.Direction != Direction.Left)
             {
                 Snake.Direction = Direction.Right;
                 Debug.Write("Right");
