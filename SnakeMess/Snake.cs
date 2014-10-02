@@ -12,7 +12,6 @@ namespace SnakeMess
         public Snake(Direction direction, Vector position)
         {
             Direction = direction;
-            // TODO CREATE SNAKE TRAIN
             this.Add(new SnakeComponent(position, SnakePart.Head));
 
             while (this.Count() < StartLength)
@@ -27,6 +26,8 @@ namespace SnakeMess
 
         public Direction Direction { get; set; }
 
+        public Direction LastDirection { get; private set; }
+
         public virtual void Move()
         {
             // Create temp for head and last tail
@@ -36,7 +37,8 @@ namespace SnakeMess
             oldLastTail.Position = this.First().Position;
             this.Insert(1, oldLastTail);
             this.First().Position = Vector.DirectlyAhead(Direction, this.First().Position);
-            
+            LastDirection = Direction;
+
             /*
             this.Insert(1, oldLastTail);
              */

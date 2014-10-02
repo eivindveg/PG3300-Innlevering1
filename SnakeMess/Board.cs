@@ -59,30 +59,20 @@ namespace SnakeMess
 
         private Random Random { get; set; }
 
-        public Vector PlaceApple()
+        public void PlaceApple()
         {
-            Apple apple;
-            for (;;)
+            while (Apples.Count < 1)
             {
                 var x = Random.Next(0, Dimension.X);
                 var y = Random.Next(0, Dimension.Y);
-                apple = new Apple(EdibleType.RedApple, new Vector(x, y));
-                var spot = true;
-                foreach (var player in Players)
-                {
-                    if (player.Snake.IsInPosition(apple.Position))
-                    {
-                        spot = false;
-                        break;
-                    }
-                }
+                var apple = new Apple(EdibleType.RedApple, new Vector(x, y));
+                var spot = Players.All(player => !player.Snake.IsInPosition(apple.Position));
                 if (spot)
                 {
-                    break;
+                    Apples.Add(apple);
                 }
             }
-            Apples.Add(apple);
-            return apple.Position;
+            
         }
 
         public bool PositionOutOfBounds(Vector position)
@@ -127,7 +117,15 @@ namespace SnakeMess
                 foreach (var component in player.Snake)
                 {
                     Debug.WriteLine(component.Position);
-                    Console.SetCursorPosition(component.Position.X, component.Position.Y);
+                    try
+                    {
+                        Console.SetCursorPosition(component.Position.X, component.Position.Y);
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        continue;
+                    }
+
                     switch (component.Type)
                     {
                         case SnakePart.Head:
@@ -139,6 +137,16 @@ namespace SnakeMess
                     }
                 }
             }
+        }
+
+        public bool AllPlayersDead()
+        {
+            var allDead = true;
+            foreach (var player in Players.Where(player => !player.IsDead))
+            {
+                allDead = false;
+            }
+            return allDead;
         }
 
         private void PositionSnakes()

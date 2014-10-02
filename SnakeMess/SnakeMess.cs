@@ -1,4 +1,6 @@
-﻿namespace SnakeMess
+﻿using System.Collections.Generic;
+
+namespace SnakeMess
 {
     using System;
     using System.Diagnostics;
@@ -12,8 +14,16 @@
             bool gg = false, pause = false, inUse = false;
             var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
             Debug.WriteLine(dimension);
-            var player = new Player(1);
-            var board = new Board(dimension, player);
+            List<Player> players = new List<Player>
+            {
+                new Player(1),
+                new Player(2),
+                new Player(3)
+            };
+
+            //var player = new Player(1);
+
+            var board = new Board(dimension, players);
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
 
             // var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
@@ -67,30 +77,13 @@
 
                 timer.Restart();
 
-                // var head = localPlayer.Snake.First();
-                /*
-                var newHead = new Vector(head.Position.X, head.Position.Y);
-                 
-                switch (newDir)
-                {
-                    case 0:
-                        newHead = newHead - new Vector(0, 1);
-                        break;
-                    case 1:
-                        newHead = newHead + new Vector(1, 0);
-                        break;
-                    case 2:
-                        newHead = newHead + new Vector(0, 1);
-                        break;
-                    default:
-                        newHead = newHead - new Vector(1, 0);
-                        break;
-                }
-                 */
                 foreach (var localPlayer in board.Players)
                 {
-                    localPlayer.Snake.Move();
-                    gg = board.PositionOutOfBounds(localPlayer.Snake.GetHeadLocation());
+                    if (!localPlayer.IsDead)
+                    {
+                        localPlayer.Snake.Move();
+                        localPlayer.IsDead = board.PositionOutOfBounds(localPlayer.Snake.GetHeadLocation());
+                    }
 
                     var headLocation = localPlayer.Snake.GetHeadLocation();
                     foreach (var apple in board.Apples.Where(apple => headLocation == apple.Position))
@@ -107,29 +100,27 @@
                             board.PlaceApple();
                             localPlayer.Snake.Grow();
                         }
-
-                        // player.Snake.RemoveAt(0);
-
                     }
-                    foreach (SnakeComponent component in localPlayer.Snake)
+
+                    if (localPlayer.Snake.Where(component => component.Type != SnakePart.Head).Any(component => component.Position == headLocation))
                     {
-                        if (component.Type == SnakePart.Head)
+                        localPlayer.IsDead = true;
+                        Debug.WriteLine("You fail!");
+                    }
+                    foreach (var otherPlayer in board.Players)
+                    {
+                        if (otherPlayer.Id == localPlayer.Id)
                         {
                             continue;
                         }
-
-                        if (component.Position == headLocation)
+                        foreach (var component in otherPlayer.Snake)
                         {
-                            gg = true;
-                            Debug.WriteLine("You fail!");
-                            break;
+                            if (component.Position == headLocation)
+                            {
+                                localPlayer.IsDead = true;
+                            }
                         }
                     }
-                }
-
-                if (!inUse)
-                {
-
                 }
 
                 if (gg)
@@ -149,10 +140,15 @@
                     Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
                     Console.Write("$");
                 }
-                
+
+                if (board.AllPlayersDead())
+                {
+                    gg = true;
+                    continue;
+                }
+
                 board.ReDraw();
             }
-            Debug.WriteLine(gg);
         }
     }
 }
