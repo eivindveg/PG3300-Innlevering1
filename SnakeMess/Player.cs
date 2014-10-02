@@ -5,8 +5,6 @@
 
     public class Player
     {
-        private readonly KeyMapping keyMap;
-
         public Player(int id)
         {
             Id = id;
@@ -15,11 +13,11 @@
             {
                 case 1:
                     Color = ConsoleColor.Green;
-                    keyMap = new KeyMapping(ConsoleKey.UpArrow, ConsoleKey.DownArrow, ConsoleKey.LeftArrow, ConsoleKey.RightArrow);
+                    KeyMap = new KeyMapping(ConsoleKey.UpArrow, ConsoleKey.DownArrow, ConsoleKey.LeftArrow, ConsoleKey.RightArrow);
                     break;
                 case 2:
                     Color = ConsoleColor.Blue;
-                    keyMap = new KeyMapping(ConsoleKey.W, ConsoleKey.S, ConsoleKey.A, ConsoleKey.D);
+                    KeyMap = new KeyMapping(ConsoleKey.W, ConsoleKey.S, ConsoleKey.A, ConsoleKey.D);
                     break;
             }
         }
@@ -43,19 +41,19 @@
             }
 
             var keyPushed = Console.ReadKey(true);
-            if (keyPushed.Equals(this.keyMap.Up))
+            if (keyPushed.Key == KeyMap.Up && Snake.Direction != Direction.Down)
             {
                 Debug.Write("Up");
             }
-            else if (keyPushed.Equals(this.keyMap.Down))
+            else if (keyPushed.Key == KeyMap.Down && Snake.Direction != Direction.Up)
             {
                 Debug.Write("Down");
             }
-            else if (keyPushed.Equals(this.keyMap.Left))
+            else if (keyPushed.Key == KeyMap.Left && Snake.Direction != Direction.Right)
             {
                 Debug.Write("Left");
             }
-            else if (keyPushed.Equals(this.keyMap.Left))
+            else if (keyPushed.Key == KeyMap.Right && Snake.Direction != Direction.Right)
             {
                 Debug.Write("Right");
             }
