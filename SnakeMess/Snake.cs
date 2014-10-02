@@ -1,4 +1,6 @@
-﻿namespace SnakeMess
+﻿using System.IO;
+
+namespace SnakeMess
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -9,6 +11,7 @@
 
         public Snake(Direction direction, Vector position)
         {
+            Direction = direction;
             // TODO CREATE SNAKE TRAIN
             this.Add(new SnakeComponent(position, SnakePart.Head));
 
