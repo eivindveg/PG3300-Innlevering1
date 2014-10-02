@@ -84,8 +84,28 @@ namespace SnakeMess
             return apple.Position;
         }
 
+        public bool PositionOutOfBounds(Vector position)
+        {
+            if (position.X < 0 || position.Y < 0)
+            {
+                return true;
+            }
+
+            if (position.X >= Dimension.X || position.Y >= Dimension.Y)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public void RemoveApple(Apple apple)
         {
+            if (apple == null)
+            {
+                throw new ArgumentNullException("apple");
+            }
+
             Apples.TryTake(out apple);
         }
 

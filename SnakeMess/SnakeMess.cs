@@ -105,24 +105,11 @@
                         break;
                 }
 
-                if (newHead.X < 0 || newHead.X >= boardW)
-                {
-                    Debug.WriteLine(boardW);
-                    Debug.WriteLine(newHead.X);
-                    Debug.WriteLine("Out of horizontal bounds");
-                    gg = true;
-                }
-                else if (newHead.Y < 0 || newHead.Y >= boardH)
-                {
-                    Debug.WriteLine(boardH);
-                    Debug.WriteLine(newHead.Y);
-                    Debug.WriteLine("Out of vertical bounds");
-                    gg = true;
-                }
+                gg = board.PositionOutOfBounds(newHead);
 
                 foreach (var apple in board.Apples)
                 {
-                    if (newHead.X == apple.Position.X && newHead.Y == apple.Position.Y)
+                    if (newHead == apple.Position)
                     {
                         board.RemoveApple(apple);
                         if (player.Snake.Count + 1 >= boardW * boardH)
@@ -133,6 +120,7 @@
                         else
                         {
                             board.PlaceApple();
+                            player.Snake.Grow();
                         }
                     }
                 }
