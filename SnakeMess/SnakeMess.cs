@@ -37,9 +37,8 @@
                 var x = rng.Next(0, board.Dimension.Y);
                 var y = rng.Next(0, board.Dimension.Y);
                 app = new Apple(EdibleType.RedApple, new Vector(x, y));
-                var spot = player.Snake.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
-
-                if (!spot)
+                var spot = true;
+                if (player.Snake.IsInPosition(app.Position))
                 {
                     continue;
                 }
