@@ -2,9 +2,9 @@
 {
     public struct Vector
     {
-        public int X;
+        public readonly int X;
 
-        public int Y;
+        public readonly int Y;
 
         public Vector(int x, int y)
         {
@@ -37,16 +37,56 @@
             switch (fromDirection)
             {
                 case Direction.Down:
-                    return new Vector(fromVector.X, fromVector.Y - 1);
+                    return fromVector - new Vector(0, 1);
                 case Direction.Up:
-                    return new Vector(fromVector.X, fromVector.Y + 1);
+                    return fromVector + new Vector(0, 1);
                 case Direction.Left:
-                    return new Vector(fromVector.X + 1, fromVector.Y);
+                    return fromVector + new Vector(1, 0);
                 case Direction.Right:
-                    return new Vector(fromVector.X - 1, fromVector.Y);
+                    return fromVector - new Vector(1, 0);
             }
 
             return fromVector;
+        }
+
+        public static Vector DirectlyAhead(Direction fromDirection, Vector fromVector)
+        {
+            switch (fromDirection)
+            {
+                case Direction.Down:
+                    return fromVector + new Vector(0, 1);
+                case Direction.Up:
+                    return fromVector - new Vector(0, 1);
+                case Direction.Left:
+                    return fromVector - new Vector(1, 0);
+                case Direction.Right:
+                    return fromVector + new Vector(1, 0);
+            }
+
+            return fromVector;
+        }
+
+        public bool Equals(Vector other)
+        {
+            return this == other;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            return obj is Vector && Equals((Vector)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (X * 397) ^ Y;
+            }
         }
     }
 }
