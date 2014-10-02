@@ -131,11 +131,6 @@
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.SetCursorPosition(head.Position.X, head.Position.Y);
                 Console.Write("O");
-                if (!inUse)
-                {
-                    Console.SetCursorPosition(tail.Position.X, tail.Position.Y);
-                    Console.Write(" ");
-                }
                 
                 foreach (var apple in board.Apples)
                 {
@@ -144,26 +139,8 @@
                     Console.Write("$");
                     inUse = false;
                 }
-
-                foreach (var localPlayer in board.Players)
-                {
-                    localPlayer.Snake.Move();
-                    Console.ForegroundColor = player.Color;
-                    foreach (var component in localPlayer.Snake)
-                    {
-                        Debug.WriteLine(component.Position);
-                        Console.SetCursorPosition(component.Position.X, component.Position.Y);
-                        switch (component.Type)
-                        {
-                            case SnakePart.Head:
-                                Console.Write("@");
-                                break;
-                            case SnakePart.Tail:
-                                Console.Write("O");
-                                break;
-                        }
-                    }
-                }
+                player.Snake.Move();
+                board.ReDraw();
 
                 last = newDir;
             }

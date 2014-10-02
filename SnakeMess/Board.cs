@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 
 namespace SnakeMess
 {
@@ -107,6 +108,37 @@ namespace SnakeMess
             }
 
             Apples.TryTake(out apple);
+        }
+
+        public void ReDraw()
+        {
+            Console.Clear();
+
+            foreach (var apple in Apples)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
+                Console.Write("$");
+            }
+
+            foreach (var player in Players)
+            {
+                Console.ForegroundColor = player.Color;
+                foreach (var component in player.Snake)
+                {
+                    Debug.WriteLine(component.Position);
+                    Console.SetCursorPosition(component.Position.X, component.Position.Y);
+                    switch (component.Type)
+                    {
+                        case SnakePart.Head:
+                            Console.Write("@");
+                            break;
+                        case SnakePart.Tail:
+                            Console.Write("O");
+                            break;
+                    }
+                }
+            }
         }
 
         private void PositionSnakes()
