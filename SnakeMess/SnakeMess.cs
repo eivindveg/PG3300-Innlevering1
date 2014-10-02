@@ -35,22 +35,12 @@
             Debug.WriteLine(headPosition);
             Console.SetCursorPosition(headPosition.X, headPosition.Y);
             Console.Write("@");
-            for (;;)
-            {
-                var x = rng.Next(0, board.Dimension.Y);
-                var y = rng.Next(0, board.Dimension.Y);
-                app = new Apple(EdibleType.RedApple, new Vector(x, y));
-                var spot = true;
-                if (player.Snake.IsInPosition(app.Position))
-                {
-                    continue;
-                }
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.SetCursorPosition(app.Position.X, app.Position.Y);
-                Console.Write("$");
-                break;
-            }
+            var applePosition = board.PlaceApple();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(applePosition.X, applePosition.Y);
+            Console.Write("$");
 
             Debug.WriteLine("Placed apple");
             var timer = new Stopwatch();
@@ -130,29 +120,18 @@
                     gg = true;
                 }
 
-                if (newHead.X == app.Position.X && newHead.Y == app.Position.Y)
+                foreach (var apple in board.Apples)
                 {
-                    if (player.Snake.Count + 1 >= boardW * boardH)
+                    if (newHead.X == apple.Position.X && newHead.Y == apple.Position.Y)
                     {
-                        // No more room to place apples -- game over.
-                        gg = true;
-                    }
-                    else
-                    {
-                        for (;;)
+                        if (player.Snake.Count + 1 >= boardW * boardH)
                         {
-                            var x = rng.Next(0, boardW);
-                            var y = rng.Next(0, boardH);
-                            app.Position = new Vector(x, y);
-                            var found = player.Snake.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
-
-                            if (!found)
-                            {
-                                continue;
-                            }
-
-                            inUse = true;
-                            break;
+                            // No more room to place apples -- game over.
+                            gg = true;
+                        }
+                        else
+                        {
+                            board.PlaceApple();
                         }
                     }
                 }
@@ -181,10 +160,13 @@
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.SetCursorPosition(app.Position.X, app.Position.Y);
-                    Console.Write("$");
-                    inUse = false;
+                    foreach (var apple in board.Apples)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
+                        Console.Write("$");
+                        inUse = false;
+                    }
                 }
 
                 player.Snake.Add(new SnakeComponent(newHead, SnakePart.Head));

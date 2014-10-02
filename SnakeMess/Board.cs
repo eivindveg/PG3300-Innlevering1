@@ -26,18 +26,22 @@
         /// </param>
         public Board(Vector dimension, List<Player> players)
         {
+            Random = new Random();
             Dimension = dimension;
             Players = players;
+            Apples = new List<Apple>();
             PositionSnakes();
         }
 
         public Board(Vector dimension, Player player)
         {
+            Random = new Random();
             Dimension = dimension;
             Players = new List<Player>
                           {
                               player
                           };
+            Apples = new List<Apple>();
             this.PositionSnakes();
         }
 
@@ -50,9 +54,34 @@
 
         public List<Player> Players { get; set; }
 
-        /// <summary>
-        /// The Position players.
-        /// </summary>
+        private Random Random { get; set; }
+
+        public Vector PlaceApple()
+        {
+            Apple apple;
+            for (;;)
+            {
+                var x = Random.Next(0, Dimension.X);
+                var y = Random.Next(0, Dimension.Y);
+                apple = new Apple(EdibleType.RedApple, new Vector(x, y));
+                var spot = false;
+                foreach (var player in Players)
+                {
+                    if (player.Snake.IsInPosition(apple.Position))
+                    {
+                        spot = true;
+                        break;
+                    }
+                }
+                if (spot)
+                {
+                    break;
+                }
+            }
+            Apples.Add(apple);
+            return apple.Position;
+        }
+
         private void PositionSnakes()
         {
             foreach (var player in Players)
