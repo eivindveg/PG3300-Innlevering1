@@ -17,7 +17,7 @@
             return new Vector(vector1.X + vector2.X, vector1.Y + vector2.Y);
         }
 
-        public static Vector operator -(Vector vector1, Vector vector2)
+        public static Vector operator -(Vector vector2, Vector vector1)
         {
             return new Vector(vector2.X - vector1.X, vector2.Y - vector1.Y);
         }
@@ -87,6 +87,11 @@
             {
                 return (X * 397) ^ Y;
             }
+        }
+
+        public override string ToString()
+        {
+            return "[" + X + "," + Y + "]";
         }
     }
 }

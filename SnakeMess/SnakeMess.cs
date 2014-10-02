@@ -21,6 +21,7 @@
             short newDir = 2; // 0 = up, 1 = right, 2 = down, 3 = left
             var last = newDir;
             var dimension = new Vector(Console.WindowWidth, Console.LargestWindowHeight);
+            Debug.WriteLine(dimension);
             var player = new Player(1);
             var board = new Board(dimension, player);
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
@@ -30,7 +31,9 @@
             // var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
             Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(10, 10);
+            var headPosition = player.Snake.GetHeadLocation();
+            Debug.WriteLine(headPosition);
+            Console.SetCursorPosition(headPosition.X, headPosition.Y);
             Console.Write("@");
             for (;;)
             {
@@ -49,6 +52,7 @@
                 break;
             }
 
+            Debug.WriteLine("Placed apple");
             var timer = new Stopwatch();
             timer.Start();
             while (!gg)
@@ -98,7 +102,7 @@
                 switch (newDir)
                 {
                     case 0:
-                        newHead = newHead - new Vector(0,1);
+                        newHead = newHead - new Vector(0, 1);
                         break;
                     case 1:
                         newHead = newHead + new Vector(1, 0);
@@ -113,10 +117,16 @@
 
                 if (newHead.X < 0 || newHead.X >= boardW)
                 {
+                    Debug.WriteLine(boardW);
+                    Debug.WriteLine(newHead.X);
+                    Debug.WriteLine("Out of horizontal bounds");
                     gg = true;
                 }
-                else if (newHead.X < 0 || newHead.X >= boardH)
+                else if (newHead.Y < 0 || newHead.Y >= boardH)
                 {
+                    Debug.WriteLine(boardH);
+                    Debug.WriteLine(newHead.X);
+                    Debug.WriteLine("Out of vertical bounds");
                     gg = true;
                 }
 
@@ -183,6 +193,7 @@
                 Console.Write("@");
                 last = newDir;
             }
+            Debug.WriteLine(gg);
         }
     }
 }
