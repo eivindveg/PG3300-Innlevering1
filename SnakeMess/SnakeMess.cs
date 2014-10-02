@@ -155,7 +155,7 @@
 
                 foreach (var localPlayer in board.Players)
                 {
-                    player.Snake.Move();
+                    localPlayer.Snake.Move();
                     Console.ForegroundColor = player.Color;
                     foreach (var component in localPlayer.Snake)
                     {
