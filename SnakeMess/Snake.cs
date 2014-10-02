@@ -1,11 +1,6 @@
 ﻿namespace SnakeMess
 {
-    using System;
-    using System.CodeDom;
-    using System.CodeDom.Compiler;
-    using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
 
     public class Snake : List<SnakeComponent>, ICollideable
