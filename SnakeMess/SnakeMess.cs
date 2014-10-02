@@ -20,7 +20,7 @@
             bool gg = false, pause = false, inUse = false;
             short newDir = 2; // 0 = up, 1 = right, 2 = down, 3 = left
             var last = newDir;
-            var dimension = new Vector(Console.WindowWidth, Console.LargestWindowHeight);
+            var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
             Debug.WriteLine(dimension);
             var player = new Player(1);
             var board = new Board(dimension, player);
@@ -125,7 +125,7 @@
                 else if (newHead.Y < 0 || newHead.Y >= boardH)
                 {
                     Debug.WriteLine(boardH);
-                    Debug.WriteLine(newHead.X);
+                    Debug.WriteLine(newHead.Y);
                     Debug.WriteLine("Out of vertical bounds");
                     gg = true;
                 }
@@ -172,7 +172,7 @@
                 }
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(head.Position.X, head.Position.X);
+                Console.SetCursorPosition(head.Position.X, head.Position.Y);
                 Console.Write("O");
                 if (!inUse)
                 {
