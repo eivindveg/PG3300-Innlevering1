@@ -30,7 +30,7 @@
             // Move head forward, move last tail to old head
             var oldLastTail = this.Last();
             this.First().Position = Vector.DirectlyAhead(Direction, this.First().Position);
-            this.Remove(this.Last());
+            this.Remove(this.First());
             this.Insert(1, oldLastTail);
 
         }

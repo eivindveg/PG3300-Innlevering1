@@ -37,9 +37,9 @@
             switch (fromDirection)
             {
                 case Direction.Down:
-                    return fromVector - new Vector(0, 1);
-                case Direction.Up:
                     return fromVector + new Vector(0, 1);
+                case Direction.Up:
+                    return fromVector - new Vector(0, 1);
                 case Direction.Left:
                     return fromVector + new Vector(1, 0);
                 case Direction.Right:
@@ -54,9 +54,9 @@
             switch (fromDirection)
             {
                 case Direction.Down:
-                    return fromVector + new Vector(0, 1);
-                case Direction.Up:
                     return fromVector - new Vector(0, 1);
+                case Direction.Up:
+                    return fromVector + new Vector(0, 1);
                 case Direction.Left:
                     return fromVector - new Vector(1, 0);
                 case Direction.Right:

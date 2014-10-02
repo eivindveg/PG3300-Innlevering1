@@ -124,8 +124,8 @@
 
                 if (!inUse)
                 {
-                    player.Snake.RemoveAt(0);
-                    if (player.Snake.Any(x => x.Position.X == newHead.X && x.Position.Y == newHead.Y))
+                    // player.Snake.RemoveAt(0);
+                    if (player.Snake.Any(component => component.Position == newHead))
                     {
                         gg = true;
                     }
@@ -152,12 +152,27 @@
                     Console.Write("$");
                     inUse = false;
                 }
-                
 
-                player.Snake.Add(new SnakeComponent(newHead, SnakePart.Head));
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.SetCursorPosition(newHead.X, newHead.Y);
-                Console.Write("@");
+                foreach (var localPlayer in board.Players)
+                {
+                    player.Snake.Move();
+                    Console.ForegroundColor = player.Color;
+                    foreach (var component in localPlayer.Snake)
+                    {
+                        Debug.WriteLine(component.Position);
+                        Console.SetCursorPosition(component.Position.X, component.Position.Y);
+                        switch (component.Type)
+                        {
+                            case SnakePart.Head:
+                                Console.Write("@");
+                                break;
+                            case SnakePart.Tail:
+                                Console.Write("O");
+                                break;
+                        }
+                    }
+                }
+
                 last = newDir;
             }
             Debug.WriteLine(gg);
