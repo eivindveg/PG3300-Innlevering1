@@ -12,6 +12,26 @@
             Y = y;
         }
 
+        public static Vector operator +(Vector vector1, Vector vector2)
+        {
+            return new Vector(vector1.X + vector2.X, vector1.Y + vector2.Y);
+        }
+
+        public static Vector operator -(Vector vector1, Vector vector2)
+        {
+            return new Vector(vector2.X - vector1.X, vector2.Y - vector1.Y);
+        }
+
+        public static bool operator ==(Vector vector1, Vector vector2)
+        {
+            return vector1.X == vector2.X && vector1.Y == vector2.Y;
+        }
+
+        public static bool operator !=(Vector vector1, Vector vector2)
+        {
+            return !(vector1 == vector2);
+        }
+
         public static Vector DirectlyBehind(Direction fromDirection, Vector fromVector)
         {
             switch (fromDirection)
