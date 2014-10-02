@@ -40,6 +40,11 @@
 
         }
 
+        public virtual void Grow()
+        {
+            this.Add(new SnakeComponent(this.Last().Position, SnakePart.Tail));
+        }
+
         public virtual Vector GetHeadLocation()
         {
             return this.First().Position;
