@@ -124,6 +124,7 @@
                 {
                     if (newHead.X == apple.Position.X && newHead.Y == apple.Position.Y)
                     {
+                        board.RemoveApple(apple);
                         if (player.Snake.Count + 1 >= boardW * boardH)
                         {
                             // No more room to place apples -- game over.

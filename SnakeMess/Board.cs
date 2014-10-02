@@ -66,12 +66,12 @@ namespace SnakeMess
                 var x = Random.Next(0, Dimension.X);
                 var y = Random.Next(0, Dimension.Y);
                 apple = new Apple(EdibleType.RedApple, new Vector(x, y));
-                var spot = false;
+                var spot = true;
                 foreach (var player in Players)
                 {
                     if (player.Snake.IsInPosition(apple.Position))
                     {
-                        spot = true;
+                        spot = false;
                         break;
                     }
                 }
@@ -82,6 +82,11 @@ namespace SnakeMess
             }
             Apples.Add(apple);
             return apple.Position;
+        }
+
+        public void RemoveApple(Apple apple)
+        {
+            Apples.TryTake(out apple);
         }
 
         private void PositionSnakes()
