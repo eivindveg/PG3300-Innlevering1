@@ -31,10 +31,8 @@
 
         public virtual void Move()
         {
-            throw new NotImplementedException();
-            //Create temp for head and last tail
-            //Move head forward, move last tail to old head
-            var oldHead = this.GetHeadLocation();
+            // Create temp for head and last tail
+            // Move head forward, move last tail to old head
             var oldLastTail = this.Last();
             this.First().Position = Vector.DirectlyAhead(Direction, this.First().Position);
             this.Remove(this.Last());
