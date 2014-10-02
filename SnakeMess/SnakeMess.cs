@@ -1,10 +1,8 @@
-﻿using System.Linq;
-
-namespace SnakeMess
+﻿namespace SnakeMess
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Linq;
 
     /// <summary>
     ///     The snake mess.
@@ -23,13 +21,10 @@ namespace SnakeMess
             short newDir = 2; // 0 = up, 1 = right, 2 = down, 3 = left
             var last = newDir;
             var dimension = new Vector(Console.WindowWidth, Console.LargestWindowHeight);
-            var snakes = new List<Snake>();
-            var snake = new Snake();
-            snakes.Add(snake);
-            var board = new Board(dimension, snakes);
+            var player = new Player(1);
+            var board = new Board(dimension, player);
             int boardW = Console.WindowWidth, boardH = Console.WindowHeight;
             var rng = new Random();
-            var position = new Vector();
             Apple app;
 
             // var snake = new List<Coord> {new Coord(10, 10), new Coord(10, 10), new Coord(10, 10), new Coord(10, 10)};
@@ -42,7 +37,7 @@ namespace SnakeMess
                 var x = rng.Next(0, board.Dimension.Y);
                 var y = rng.Next(0, board.Dimension.Y);
                 app = new Apple(EdibleType.RedApple, new Vector(x, y));
-                var spot = snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
+                var spot = player.Snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
 
                 if (!spot)
                 {
@@ -98,8 +93,8 @@ namespace SnakeMess
                 }
 
                 timer.Restart();
-                var tail = snake.Components.First();
-                var head = snake.Components.Last();
+                var tail = player.Snake.Components.First();
+                var head = player.Snake.Components.Last();
                 var newHead = new Vector(head.Position.X, head.Position.Y);
                 switch (newDir)
                 {
@@ -128,7 +123,7 @@ namespace SnakeMess
 
                 if (newHead.X == app.Position.X && newHead.Y == app.Position.Y)
                 {
-                    if (snake.Components.Count + 1 >= boardW * boardH)
+                    if (player.Snake.Components.Count + 1 >= boardW * boardH)
                     {
                         // No more room to place apples -- game over.
                         gg = true;
@@ -140,7 +135,7 @@ namespace SnakeMess
                             var x = rng.Next(0, boardW);
                             var y = rng.Next(0, boardH);
                             app.Position = new Vector(x, y);
-                            var found = snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
+                            var found = player.Snake.Components.All(i => i.Position.X != app.Position.X || i.Position.Y != app.Position.Y);
 
                             if (!found)
                             {
@@ -155,8 +150,8 @@ namespace SnakeMess
 
                 if (!inUse)
                 {
-                    snake.Components.RemoveAt(0);
-                    if (snake.Components.Any(x => x.Position.X == newHead.X && x.Position.Y == newHead.Y))
+                    player.Snake.Components.RemoveAt(0);
+                    if (player.Snake.Components.Any(x => x.Position.X == newHead.X && x.Position.Y == newHead.Y))
                     {
                         gg = true;
                     }
@@ -183,7 +178,7 @@ namespace SnakeMess
                     inUse = false;
                 }
 
-                snake.Components.Add(new SnakeComponent(newHead, SnakePart.Head));
+                player.Snake.Components.Add(new SnakeComponent(newHead, SnakePart.Head));
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.SetCursorPosition(newHead.X, newHead.Y);
                 Console.Write("@");
