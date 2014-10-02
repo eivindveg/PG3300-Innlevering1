@@ -1,6 +1,7 @@
 ﻿namespace SnakeMess
 {
     using System;
+    using System.CodeDom.Compiler;
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -13,15 +14,13 @@
         public Snake(Direction direction, Vector position)
         {
             // TODO CREATE SNAKE TRAIN
-//            foreach (var snakeCompoment in this)
-//            {
-//
-//            }
             this.Add(new SnakeComponent(position, SnakePart.Head));
+            
 
-            for (var i = 0; i < StartLength - 1; i++)
+            while(this.Count() <= StartLength)
             {
-                
+                position = Vector.DirectlyBehind(direction, position);
+                this.Add(new SnakeComponent(position, SnakePart.Tail));
             }
         }
 
