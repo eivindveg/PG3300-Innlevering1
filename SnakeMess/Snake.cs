@@ -32,9 +32,9 @@ namespace SnakeMess
             // Create temp for head and last tail
             // Move head forward, move last tail to old head
             var oldLastTail = this.First();
-            this.Last().Position = Vector.DirectlyAhead(Direction, this.First().Position);
+            this.Last().Position = Vector.DirectlyAhead(Direction, this.Last().Position);
             this.Remove(this.First());
-            this.Insert(this.Count() - 2, oldLastTail);
+            this.Insert(this.Count(), oldLastTail);
 
         }
 

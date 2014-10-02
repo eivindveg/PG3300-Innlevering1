@@ -4,17 +4,9 @@
     using System.Diagnostics;
     using System.Linq;
 
-    /// <summary>
-    ///     The snake mess.
-    /// </summary>
     internal class SnakeMess
     {
-        /// <summary>
-        /// The main.
-        /// </summary>
-        /// <param name="arguments">
-        /// The arguments.
-        /// </param>
+
         public static void Main(string[] arguments)
         {
             bool gg = false, pause = false, inUse = false;
