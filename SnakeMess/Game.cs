@@ -7,10 +7,6 @@
 
     public class Game
     {
-        private List<Player> Players { get; set; }
-
-        private Board Board { get; set; }
-
         public Game(int numPlayers, Vector boardSize)
         {
             var players = new List<Player>(numPlayers);
@@ -18,19 +14,23 @@
             {
                 players.Add(new Player(i));
             }
+
             Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.Green;
-            bool gg = false, pause = false, inUse = false;
             Players = players;
             Board = new Board(boardSize, players);
         }
 
+        private List<Player> Players { get; set; }
+
+        private Board Board { get; set; }
+
         public static void Main(string[] args)
         {
-            var player = new Player(1);
             var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
+            var game = new Game(1, dimension);
+            game.Play();
         }
-
 
         protected virtual void Play()
         {
@@ -39,7 +39,6 @@
             var timer = new Stopwatch();
             Board.PlaceApple();
             Board.ReDraw();
-            Debug.WriteLine("Placed apple");
             timer.Start();
             while (!gameOver)
             {
@@ -90,7 +89,11 @@
         {
             foreach (var player in Board.Players.Where(player => !player.IsDead))
             {
-                player.Snake.Move();
+                if (player.Snake.Move(Board.Apples))
+                {
+                    Board.PlaceApple();
+                }
+                
                 player.IsDead = Board.PositionOutOfBounds(player.Snake.GetHeadLocation());
             }
         }

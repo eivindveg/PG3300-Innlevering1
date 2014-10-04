@@ -31,7 +31,7 @@
             Random = new Random();
             Dimension = dimension;
             Players = players;
-            Apples = new ConcurrentBag<Apple>();
+            Apples = new List<Apple>();
             PositionSnakes();
         }
 
@@ -43,7 +43,7 @@
                           {
                               player
                           };
-            Apples = new ConcurrentBag<Apple>();
+            Apples = new List<Apple>();
             this.PositionSnakes();
         }
 
@@ -52,7 +52,7 @@
         /// </summary>
         public Vector Dimension { get; private set; }
 
-        public ConcurrentBag<Apple> Apples { get; set; }
+        public List<Apple> Apples { get; set; }
 
         public List<Player> Players { get; set; }
 
@@ -117,7 +117,7 @@
                 throw new ArgumentNullException("apple");
             }
 
-            Apples.TryTake(out apple);
+            Apples.Remove(apple);
         }
 
         public void ReDraw()

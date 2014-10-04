@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace SnakeMess
+﻿namespace SnakeMess
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -17,7 +15,7 @@ namespace SnakeMess
             while (this.Count() < StartLength)
             {
                 position = Vector.DirectlyBehind(direction, position);
-                this.Add(new SnakeComponent(position, SnakePart.Tail));
+                Add(new SnakeComponent(position, SnakePart.Tail));
             }
         }
 
@@ -28,26 +26,36 @@ namespace SnakeMess
 
         public Direction LastDirection { get; private set; }
 
-        public virtual void Move()
+        public virtual bool Move(List<Apple> apples)
         {
             // Create temp for head and last tail
             // Move head forward, move last tail to old head
             var oldLastTail = this.Last();
-            this.Remove(oldLastTail);
+            var head = this.First();
+            var newLastTailPosition = head.Position;
             oldLastTail.Position = this.First().Position;
-            this.Insert(1, oldLastTail);
-            this.First().Position = Vector.DirectlyAhead(Direction, this.First().Position);
+            
+            head.Position = Vector.DirectlyAhead(Direction, head.Position);
+            var appleToEat = apples.FirstOrDefault(apple => apple.IsInPosition(head.Position));
+            if (appleToEat != null)
+            {
+                Insert(1, new SnakeComponent(newLastTailPosition, SnakePart.Tail));
+                apples.Remove(appleToEat);
+            }
+            else
+            {
+                Remove(oldLastTail);
+                oldLastTail.Position = newLastTailPosition;
+                Insert(1, oldLastTail);
+            }
+            
             LastDirection = Direction;
-
-            /*
-            this.Insert(1, oldLastTail);
-             */
-
+            return appleToEat != null;
         }
 
         public virtual void Grow()
         {
-            this.Add(new SnakeComponent(this.Last().Position, SnakePart.Tail));
+            Add(new SnakeComponent(this.Last().Position, SnakePart.Tail));
         }
 
         public virtual Vector GetHeadLocation()
@@ -57,16 +65,7 @@ namespace SnakeMess
 
         public virtual List<Vector> GetTailPositions()
         {
-            var returnList = new List<Vector>();
-            var headLocation = GetHeadLocation();
-            foreach (var component in this)
-            {
-                if (component.Position != headLocation)
-                {
-                    returnList.Add(component.Position);
-                }  
-            }
-            return returnList;
+            return (from component in this where component.Type == SnakePart.Tail select component.Position).ToList();
         }
 
         public bool IsInPosition(Vector position)
