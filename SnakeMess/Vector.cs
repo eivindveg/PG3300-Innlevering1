@@ -66,6 +66,11 @@
             return fromVector;
         }
 
+        public int GetArea()
+        {
+            return X * Y;
+        }
+
         public bool Equals(Vector other)
         {
             return this == other;
