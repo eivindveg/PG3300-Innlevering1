@@ -28,8 +28,6 @@
 
         public virtual bool Move(List<Apple> apples)
         {
-            // Create temp for head and last tail
-            // Move head forward, move last tail to old head
             var oldLastTail = this.Last();
             var head = this.First();
             var newLastTailPosition = head.Position;
