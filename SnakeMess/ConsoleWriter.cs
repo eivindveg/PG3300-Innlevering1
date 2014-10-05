@@ -159,6 +159,7 @@ namespace SnakeMess
                 Console.Write(tempMessage + snake.Count());
             }
             Console.SetCursorPosition(offset.X + 1, offset.Y + snakes.Count + 3);
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write(keyMessage);
             Console.ReadKey();
         }
