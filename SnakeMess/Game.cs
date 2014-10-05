@@ -42,21 +42,26 @@ namespace SnakeMess
             Console.BufferWidth = Console.WindowWidth;
             var startOptions = new[]
             {
-                new Option("[1] player", ConsoleKey.D1, 1),
-                new Option("[2] players", ConsoleKey.D2, 2),
-                new Option("[3] players", ConsoleKey.D3, 3), 
-                new Option("[4] show controls", ConsoleKey.D4, 4), 
+                new Option("[1] Player", ConsoleKey.D1, 1),
+                new Option("[2] Players", ConsoleKey.D2, 2),
+                new Option("[3] Players", ConsoleKey.D3, 3), 
+                new Option("[H] Show controls", ConsoleKey.H, 4),
+                new Option("[Q] Quit", ConsoleKey.Q, 5),
             };
             for (;;)
             {
-                var players = ConsoleWriter.WriteOptions(Introduction, startOptions);
-                if (players == 4)
+                var input = ConsoleWriter.WriteOptions(Introduction, startOptions);
+                if (input == 4)
                 {
                     ConsoleWriter.PrintControls();
                     continue;
                 }
+                if (input == 5)
+                {
+                    break;
+                }
 
-                var game = new Game(players, dimension);
+                var game = new Game(input, dimension);
                 game.Play();
                 var snakes = game.Board.Players.Select(player => player.Snake).ToList();
                 ConsoleWriter.PrintScores(snakes);
