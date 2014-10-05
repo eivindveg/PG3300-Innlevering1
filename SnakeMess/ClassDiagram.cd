@@ -1,100 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="SnakeMess.Apple">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAAQAAAAAACAA=</HashCode>
       <FileName>Apple.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Orientation="Bottom" Position="0.558" />
   </Class>
   <Class Name="SnakeMess.Board">
-    <Position X="8" Y="4.5" Width="1.5" />
+    <Position X="6" Y="5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAhAAABABAAAAAAAAAAAgRABAAAAAAAJAEAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.Component">
-    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Component.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.ConsoleWriter">
-    <Position X="5" Y="0.5" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ConsoleWriter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.Game">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="9" Y="5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAgAAAAgAAABCAgAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.KeyMapping">
-    <Position X="9.75" Y="4.5" Width="1.5" />
+    <Position X="3.5" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
       <FileName>KeyMapping.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.Player">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Position X="3.5" Y="6.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAgAAAAAEAAAAAEIAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.Snake" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAABABAIDIAAAAAKAAAAAAAAAAAQAAAAAAgSAAAAA=</HashCode>
       <FileName>Snake.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.65" />
   </Class>
   <Class Name="SnakeMess.SnakeComponent">
-    <Position X="2.75" Y="2.25" Width="1.5" />
+    <Position X="3.5" Y="2.25" Width="2" />
+    <InheritanceLine Type="SnakeMess.Component" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.875" Y="2.055" />
+        <Point X="3.875" Y="2.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>SnakeComponent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="SnakeMess.Vector">
-    <Position X="2.75" Y="4.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAEwAEAAAAAAAAAAIAgAAAAEAAAYiA=</HashCode>
       <FileName>Vector.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="SnakeMess.ICollideable">
-    <Position X="5" Y="2.25" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>ICollideable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="SnakeMess.Direction">
-    <Position X="10.75" Y="1.25" Width="1.5" />
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
       <FileName>Direction.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="SnakeMess.EdibleType">
-    <Position X="4.5" Y="4.5" Width="1.5" />
+    <Position X="6" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>EdibleType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="SnakeMess.SnakePart">
-    <Position X="6.25" Y="4.5" Width="1.5" />
+    <Position X="6" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>SnakePart.cs</FileName>

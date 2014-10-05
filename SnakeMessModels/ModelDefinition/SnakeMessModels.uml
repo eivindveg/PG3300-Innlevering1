@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="f466ec9d-7e72-4a54-9e2a-0451ca6cbe7a"
+  name="SnakeMessModels" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="2a0c80e8-5a1e-491a-9a27-8e4588fce3f1">
+      <body>Game sets up sub systems</body>
+    </comment>
+    <comment
+      Id="3e4efe37-fd48-4cbf-bae9-d972101e764a">
+      <body>Moves ten times per second</body>
+    </comment>
+    <comment
+      Id="5c091079-7ced-4fe4-b598-e087a2201296">
+      <body>Display changes</body>
+    </comment>
+    <comment
+      Id="91c17aac-1e4f-489d-93b3-3b2d7b10e036">
+      <body>If snake moves onto a tile containing an apple</body>
+    </comment>
+    <comment
+      Id="d0ae411e-3f3d-41ca-ad8c-e24c4288328e">
+      <body>If pressed key was movement key</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="18cbacef-09d4-4562-a54e-230e5eac15c7"
+          LastKnownName="Presses keys"
+          LastKnownLocation="SnakeMessModels.uml" />
+        <useCaseMoniker
+          Id="4793383a-89f6-4d13-8582-d7a58236e899"
+          LastKnownName="Change direction"
+          LastKnownLocation="SnakeMessModels.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="056d3d8c-3bc1-4fa1-93d3-47dce729eb51">
+      <body>If pressed key was pause key</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="d579c616-886e-4c17-b694-79e6060ecc5f"
+          LastKnownName="Pause game"
+          LastKnownLocation="SnakeMessModels.uml" />
+        <useCaseMoniker
+          Id="18cbacef-09d4-4562-a54e-230e5eac15c7"
+          LastKnownName="Presses keys"
+          LastKnownLocation="SnakeMessModels.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="0669e4c5-da92-4290-9971-02c477788c26">
+      <body>If pressed key was end game key</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="b1d8b7e0-8acc-4773-afbf-c378276179e7"
+          LastKnownName="End Game"
+          LastKnownLocation="SnakeMessModels.uml" />
+        <useCaseMoniker
+          Id="18cbacef-09d4-4562-a54e-230e5eac15c7"
+          LastKnownName="Presses keys"
+          LastKnownLocation="SnakeMessModels.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="2fa07b70-93b2-48be-9f94-443f82b54558">
+      <body>If no more room to place apples</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="e2ce98ea-912e-4d10-8e19-2a80e753145f"
+          LastKnownName="Place new apple"
+          LastKnownLocation="SnakeMessModels.uml" />
+        <useCaseMoniker
+          Id="b1d8b7e0-8acc-4773-afbf-c378276179e7"
+          LastKnownName="End Game"
+          LastKnownLocation="SnakeMessModels.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="69c37e8d-cc4e-459a-af33-b0affeb7747e"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7ea4bbdb-cb7c-4cb6-8af2-010aa5ff909e"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Starts game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6b35f348-e4a7-4ba0-bf6b-4ceb0144d733"
+              LastKnownName="Start game"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aa86b98b-5845-4bf7-8e07-311c7878175e"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee2521cb-d5e0-4e20-a8b6-91759b50466f"
+                  name="Starts game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2cca0b11-44fc-4195-9c28-22c604df3fab"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Presses movement keys"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="18cbacef-09d4-4562-a54e-230e5eac15c7"
+              LastKnownName="Presses keys"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c151a21-a69d-45cc-bf2a-bed3c4d47b3d"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="387602ef-30ff-47e2-aed7-223db6d1b89a"
+                  name="Presses movement keys"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="4d02e0b0-5b5b-4e36-b579-b38273968a3e"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6b35f348-e4a7-4ba0-bf6b-4ceb0144d733"
+        name="Start game"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="ca2b8d99-0b58-4e39-a529-a51cdb77c3f5"
+            isDerived="false"
+            sourceEndRoleName="Start game"
+            targetEndRoleName="Snake"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+              LastKnownName="Game"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5058222c-a2aa-498d-92f3-b7f9b8040af8"
+                  name="Start game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f73d1882-b069-4366-90f6-82b0d04fec8e"
+                  name="Snake"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="0ad840bc-1257-4025-8545-555947c5c955"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="e5d5f632-3221-49e7-8cde-88ad9b9e42f7"
+        name="Game starts"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c7bdba9a-1aa5-49af-89b2-231371bc46de"
+        name="Generates board and player for game object"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="fe664d3a-6429-4fcb-8040-91fb6a51aa32"
+        name="Artifact2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="0c6f5fe0-8a76-4a5d-9485-24e0330dbee8"
+        name="Subsystem2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="84696ddd-32cf-4003-9f84-dae87b2f4e2f"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+        name="Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="c933502b-d007-4915-8e53-b879b4f18d7c"
+            isDerived="false"
+            sourceEndRoleName="Snake"
+            targetEndRoleName="Player"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="69c37e8d-cc4e-459a-af33-b0affeb7747e"
+              LastKnownName="Player"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa1c5cca-97d0-4c5a-bc16-adbfb0a18b50"
+                  name="Snake"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="82c52239-0849-4f18-9f50-b8b103497f8f"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </subsystem>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f94b99f3-791e-428a-bfd5-34d6fa934073"
+        name="Eat Apple"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="08b11aad-18e9-421a-981b-4cb702b7e6bf">
+            <useCaseMoniker
+              Id="fcf06eb6-f452-4a5c-bb46-72206bbd15d8"
+              LastKnownName="Move snake"
+              LastKnownLocation="SnakeMessModels.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4793383a-89f6-4d13-8582-d7a58236e899"
+        name="Change direction"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fcf06eb6-f452-4a5c-bb46-72206bbd15d8"
+        name="Move snake"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="18cbacef-09d4-4562-a54e-230e5eac15c7"
+        name="Presses keys"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ca3e8606-879e-4a44-a4e4-89d0d9c99320"
+        name="Collide with wall or self"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="2a845a4f-711c-49c9-a6a6-47c491c09776">
+            <useCaseMoniker
+              Id="fcf06eb6-f452-4a5c-bb46-72206bbd15d8"
+              LastKnownName="Move snake"
+              LastKnownLocation="SnakeMessModels.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bb547910-9c02-4166-beef-ee643136146c"
+        name="Grow snake"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3f25d97d-3a3b-472a-ace8-a173d7357c86"
+            isDerived="false"
+            sourceEndRoleName="Grow"
+            targetEndRoleName="Eat Apple"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f94b99f3-791e-428a-bfd5-34d6fa934073"
+              LastKnownName="Eat Apple"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ab8e41a-738a-4858-823c-7344b73fbb56"
+                  name="Grow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="67ead9f7-6a2a-40c0-aa91-6d341d0a891e"
+                  name="Eat Apple"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b1d8b7e0-8acc-4773-afbf-c378276179e7"
+        name="End Game"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="00a93e19-3689-49b0-9955-8b531069af20"
+        name="Die"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="55225628-017a-4386-b336-567e3cdcde53"
+            isDerived="false"
+            sourceEndRoleName="Die"
+            targetEndRoleName="End Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b1d8b7e0-8acc-4773-afbf-c378276179e7"
+              LastKnownName="End Game"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9066439-bd1b-4702-a321-82cf15888613"
+                  name="Die"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="99732c7d-ca0a-4de5-963c-d48ff7e78b22"
+                  name="End Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="59940b06-7dca-4495-8632-214d705556b3"
+            isDerived="false"
+            sourceEndRoleName="Die"
+            targetEndRoleName="Collide with wall or self"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ca3e8606-879e-4a44-a4e4-89d0d9c99320"
+              LastKnownName="Collide with wall or self"
+              LastKnownLocation="SnakeMessModels.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ebab7175-ab86-49fe-9a31-16f468f25d80"
+                  name="Die"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f8eade70-c61b-4435-9514-8e8e864e5b98"
+                  name="Collide with wall or self"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d579c616-886e-4c17-b694-79e6060ecc5f"
+        name="Pause game"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e2ce98ea-912e-4d10-8e19-2a80e753145f"
+        name="Place new apple"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="703baaa3-ecc4-4522-a2ba-7c964993a2e6">
+            <useCaseMoniker
+              Id="f94b99f3-791e-428a-bfd5-34d6fa934073"
+              LastKnownName="Eat Apple"
+              LastKnownLocation="SnakeMessModels.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="242ea871-a294-4624-ac2c-fa9aae372e32"
+            LastKnownName="Game"
+            LastKnownLocation="SnakeMessModels.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
