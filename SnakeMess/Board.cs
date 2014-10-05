@@ -24,7 +24,7 @@
                               player
                           };
             Apples = new List<Apple>();
-            this.PositionSnakes();
+            PositionSnakes();
         }
 
         public Vector Dimension { get; private set; }
@@ -54,6 +54,13 @@
         {
             foreach (var player in Players)
             {
+                foreach (var component in player.Snake)
+                {
+                    if (PositionOutOfBounds(component.Position))
+                    {
+                        ShiftComponentToOtherSide(component);
+                    }
+                }
                 var currentPlayer = player;
                 if (player.Snake.Where(component => component.Type != SnakePart.Head)
                     .Any(component => component.Position == currentPlayer.Snake.GetHeadLocation()))
@@ -68,21 +75,52 @@
             }
         }
 
-        public void PlaceApple()
+        private void ShiftComponentToOtherSide(SnakeComponent component)
+        {
+            if (component.Position.X < 0)
+            {
+                component.Position = new Vector(Dimension.X, component.Position.Y);
+            }
+            else if (component.Position.X > Dimension.X)
+            {
+                component.Position = new Vector(0, component.Position.Y);
+            }
+
+            if (component.Position.Y < 0)
+            {
+                component.Position = new Vector(component.Position.X, Dimension.Y);
+            }
+            else if (component.Position.Y > Dimension.Y)
+            {
+                component.Position = new Vector(component.Position.X, 0);
+            }
+        }
+
+        public void PlaceApples()
         {
             do
             {
                 var x = Random.Next(0, Dimension.X);
                 var y = Random.Next(0, Dimension.Y);
-                var apple = new Apple(EdibleType.RedApple, new Vector(x, y));
+                var typeChance = Random.Next(0, 10);
+                EdibleType type;
+                if (typeChance >= 9)
+                {
+                    type = EdibleType.GoldenApple;
+                }
+                else
+                {
+                    type = EdibleType.RedApple;
+                }
+                var apple = new Apple(type, new Vector(x, y));
                 var spot = Players.All(player => !player.Snake.IsInPosition(apple.Position));
                 if (spot)
                 {
                     Apples.Add(apple);
-                    ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, Apple.Symbol);
+                    ConsoleWriter.WriteToPosition(EdibleTypeColor.GetColorForType(type), apple.Position, Apple.Symbol);
                 }
             } 
-            while (Apples.Count < (Players.Count / 2));
+            while (Apples.Count <= (Players.Count / 2));
         }
 
         public bool PositionOutOfBounds(Vector position)

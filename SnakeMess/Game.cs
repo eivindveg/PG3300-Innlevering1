@@ -24,7 +24,6 @@ namespace SnakeMess
             }
 
             Console.CursorVisible = false;
-            Console.ForegroundColor = ConsoleColor.Green;
             Players = players;
             Board = new Board(boardSize, players);
         }
@@ -35,16 +34,33 @@ namespace SnakeMess
 
         public static void Main(string[] args)
         {
+            Console.CursorVisible = false; 
+            Console.WindowHeight = 40;
+            Console.WindowWidth = 60;
             var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
+            Console.BufferHeight = Console.WindowHeight;
+            Console.BufferWidth = Console.WindowWidth;
             var startOptions = new[]
             {
-                new Option("1 player", ConsoleKey.D1, 1),
-                new Option("2 players", ConsoleKey.D2, 2),
-                new Option("3 players", ConsoleKey.D3, 3), 
+                new Option("[1] player", ConsoleKey.D1, 1),
+                new Option("[2] players", ConsoleKey.D2, 2),
+                new Option("[3] players", ConsoleKey.D3, 3), 
+                new Option("[4] show controls", ConsoleKey.D4, 4), 
             };
-            var players = ConsoleWriter.WriteOptions(Introduction, startOptions);
-            var game = new Game(players, dimension);
-            game.Play();
+            for (;;)
+            {
+                var players = ConsoleWriter.WriteOptions(Introduction, startOptions);
+                if (players == 4)
+                {
+                    ConsoleWriter.PrintControls();
+                    continue;
+                }
+
+                var game = new Game(players, dimension);
+                game.Play();
+                var snakes = game.Board.Players.Select(player => player.Snake).ToList();
+                ConsoleWriter.PrintScores(snakes);
+            }
         }
 
         protected virtual void Play()
@@ -53,7 +69,7 @@ namespace SnakeMess
             var gameOver = false;
             var pause = false;
             var timer = new Stopwatch();
-            Board.PlaceApple();
+            Board.PlaceApples();
             timer.Start();
             while (!gameOver)
             {
@@ -78,10 +94,8 @@ namespace SnakeMess
             {
                 if (player.Snake.Move(Board.Apples))
                 {
-                    Board.PlaceApple();
+                    Board.PlaceApples();
                 }
-                
-                player.IsDead = Board.PositionOutOfBounds(player.Snake.GetHeadLocation());
             }
         }
 

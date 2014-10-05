@@ -10,17 +10,21 @@
             Id = id;
             IsDead = false;
 
+            KeyMap = GetMappingFor(id);
+        }
+
+        public static KeyMapping GetMappingFor(int id)
+        {
             switch (id)
             {
                 case 1:
-                    KeyMap = new KeyMapping(ConsoleKey.UpArrow, ConsoleKey.DownArrow, ConsoleKey.LeftArrow, ConsoleKey.RightArrow);
-                    break;
+                    return new KeyMapping(ConsoleKey.UpArrow, ConsoleKey.DownArrow, ConsoleKey.LeftArrow, ConsoleKey.RightArrow);
                 case 2:
-                    KeyMap = new KeyMapping(ConsoleKey.W, ConsoleKey.S, ConsoleKey.A, ConsoleKey.D);
-                    break;
+                    return new KeyMapping(ConsoleKey.W, ConsoleKey.S, ConsoleKey.A, ConsoleKey.D);
                 case 3:
-                    KeyMap = new KeyMapping(ConsoleKey.I, ConsoleKey.K, ConsoleKey.J, ConsoleKey.L);
-                    break;
+                    return new KeyMapping(ConsoleKey.I, ConsoleKey.K, ConsoleKey.J, ConsoleKey.L);
+                default:
+                    return null;
             }
         }
 

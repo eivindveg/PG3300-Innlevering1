@@ -1,7 +1,8 @@
-﻿using System;
+﻿using System.ComponentModel;
 
 namespace SnakeMess
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -49,6 +50,13 @@ namespace SnakeMess
             {
                 Insert(1, new SnakeComponent(newLastTailPosition, SnakePart.Tail));
                 apples.Remove(appleToEat);
+                if (appleToEat.Type == EdibleType.GoldenApple)
+                {
+                    for (var i = 0; i < 4; i++)
+                    {
+                        Grow();
+                    }
+                }
             }
             else
             {
