@@ -140,6 +140,16 @@
             return Players.All(player => player.IsDead);
         }
 
+        public virtual void MoveSnakesIfAlive()
+        {
+            foreach (var player in Players.Where(player => !player.IsDead))
+            {
+                player.Snake.Move(Apples);
+            }
+
+            PlaceApples();
+        }
+
         private void ShiftComponentToOtherSide(Component component)
         {
             if (component.Position.X < 0)

@@ -1,7 +1,6 @@
 ﻿namespace SnakeMess
 {
     using System;
-    using System.Diagnostics;
 
     public class Player
     {
@@ -12,6 +11,14 @@
 
             KeyMap = GetMappingFor(id);
         }
+
+        public Snake Snake { get; set; }
+
+        public bool IsDead { get; set; }
+
+        public int Id { get; set; }
+
+        private KeyMapping KeyMap { get; set; }
 
         public static KeyMapping GetMappingFor(int id)
         {
@@ -27,16 +34,6 @@
                     return null;
             }
         }
-
-        public Snake Snake { get; set; }
-
-        public bool IsDead { get; set; }
-
-        public int Id { get; set; }
-
-        private int Score { get; set; }
-
-        private KeyMapping KeyMap { get; set; }
 
         public void KeyPushedCheck(ConsoleKey key)
         {

@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace SnakeMess
+﻿namespace SnakeMess
 {
     using System;
     using System.Collections.Generic;
@@ -87,20 +85,9 @@ namespace SnakeMess
                 
                 timer.Restart();
 
-                MoveSnakesIfAlive();
+                Board.MoveSnakesIfAlive();
                 Board.ResolvePlayerStatuses();
                 gameOver = Board.ResolveBoardStatus();
-            }
-        }
-
-        protected virtual void MoveSnakesIfAlive()
-        {
-            foreach (var player in Board.Players.Where(player => !player.IsDead))
-            {
-                if (player.Snake.Move(Board.Apples))
-                {
-                    Board.PlaceApples();
-                }
             }
         }
 
