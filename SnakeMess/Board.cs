@@ -142,12 +142,10 @@
 
         public virtual void MoveSnakesIfAlive()
         {
-            foreach (var player in Players.Where(player => !player.IsDead))
+            foreach (var player in Players.Where(player => !player.IsDead).Where(player => player.Snake.Move(Apples)))
             {
-                player.Snake.Move(Apples);
+                PlaceApples();
             }
-
-            PlaceApples();
         }
 
         private void ShiftComponentToOtherSide(Component component)

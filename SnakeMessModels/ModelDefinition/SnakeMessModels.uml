@@ -392,7 +392,7 @@
     <packageHasNamedElement>
       <useCase
         Id="ca3e8606-879e-4a44-a4e4-89d0d9c99320"
-        name="Collide with wall or self"
+        name="Collide with other player or self"
         isAbstract="false"
         isLeaf="false">
         <suppliersInternal>
@@ -529,7 +529,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="ca3e8606-879e-4a44-a4e4-89d0d9c99320"
-              LastKnownName="Collide with wall or self"
+              LastKnownName="Collide with other player or self"
               LastKnownLocation="SnakeMessModels.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>

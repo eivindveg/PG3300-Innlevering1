@@ -18,20 +18,6 @@
       </annotatedElements>
     </comment>
   </ownedCommentsInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="5dc41bfe-73bd-45cc-80bd-f7e7b63c735f">
-      <profileInstance Id="ca7a868b-743d-4fdf-9987-c4e3969b08cf" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="4f385eb7-2e76-4fff-95fd-67e8e02ecbf5">
-      <profileInstance Id="3004aa5c-2afb-46b9-92c2-a803dd93ddb9" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="c6b26e25-6273-495d-af4b-e2edeba37a2a" name="Player" isAbstract="false" isLeaf="false">
@@ -188,7 +174,7 @@
       </useCase>
     </useCaseModelRootHasTypes>
     <packageHasNamedElement>
-      <useCase Id="3c9856e6-9f91-4aae-8a4c-7c6542a22d11" name="Collide with wall or self" isAbstract="false" isLeaf="false">
+      <useCase Id="3c9856e6-9f91-4aae-8a4c-7c6542a22d11" name="Collide with other player or self" isAbstract="false" isLeaf="false">
         <elementDefinition Id="ca3e8606-879e-4a44-a4e4-89d0d9c99320" />
         <suppliersInternal>
           <dependency Id="ee29cbb0-0826-4fb8-b7e1-3bfb27006c87">
@@ -253,7 +239,7 @@
             <elementDefinition Id="55225628-017a-4386-b336-567e3cdcde53" />
           </association>
           <association Id="507c153b-a177-44f9-931f-208d04b68b1e" isDerived="false" sourceEndRoleName="Die" targetEndRoleName="Collide with wall or self" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="3c9856e6-9f91-4aae-8a4c-7c6542a22d11" LastKnownName="Collide with wall or self" />
+            <useCaseMoniker Id="3c9856e6-9f91-4aae-8a4c-7c6542a22d11" LastKnownName="Collide with other player or self" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="bba7d794-b76b-407b-95ed-17cd161bb116" name="Die" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -299,5 +285,19 @@
   </packagedElements>
   <package Id="3c751acf-a91c-445f-9671-84dc6bdb7caa" name="SnakeMessModels">
     <elementDefinition Id="f466ec9d-7e72-4a54-9e2a-0451ca6cbe7a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="5dc41bfe-73bd-45cc-80bd-f7e7b63c735f">
+        <profileInstance Id="ca7a868b-743d-4fdf-9987-c4e3969b08cf" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="4f385eb7-2e76-4fff-95fd-67e8e02ecbf5">
+        <profileInstance Id="3004aa5c-2afb-46b9-92c2-a803dd93ddb9" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>
