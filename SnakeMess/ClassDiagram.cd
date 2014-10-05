@@ -11,7 +11,7 @@
   <Class Name="SnakeMess.Board">
     <Position X="6" Y="5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAhAAABABAAAAAAAAAAAgRABAAAAAAAJAEAA=</HashCode>
+      <HashCode>AgAAAAAAABAAQBABAAABAAQAAAAgRABAAAAAAAJAEAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -25,14 +25,14 @@
   <Class Name="SnakeMess.ConsoleWriter">
     <Position X="10.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAQgAAAAAEgAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>ConsoleWriter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SnakeMess.Game">
     <Position X="9" Y="5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAgAAAAgAAABCAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgAAABCAkAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -46,7 +46,7 @@
   <Class Name="SnakeMess.Player">
     <Position X="3.5" Y="6.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAgAAAAAEAAAAAEIAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAADAAAAAAAAAAAAAAAAEAAAAAEIAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,6 +69,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>SnakeComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SnakeMess.Option">
+    <Position X="11.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgIAAAAAA=</HashCode>
+      <FileName>Option.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="SnakeMess.Vector">
@@ -95,7 +102,7 @@
   <Enum Name="SnakeMess.EdibleType">
     <Position X="6" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>EdibleType.cs</FileName>
     </TypeIdentifier>
   </Enum>
