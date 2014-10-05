@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace SnakeMess
+﻿namespace SnakeMess
 {
+    using System;
+
     public class ConsoleWriter
     {
         private ConsoleWriter()
