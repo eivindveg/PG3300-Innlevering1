@@ -61,6 +61,7 @@
                         ShiftComponentToOtherSide(component);
                     }
                 }
+
                 var currentPlayer = player;
                 if (player.Snake.Where(component => component.Type != SnakePart.Head)
                     .Any(component => component.Position == currentPlayer.Snake.GetHeadLocation()))
@@ -72,27 +73,6 @@
                 {
                     player.IsDead = true;
                 }
-            }
-        }
-
-        private void ShiftComponentToOtherSide(SnakeComponent component)
-        {
-            if (component.Position.X < 0)
-            {
-                component.Position = new Vector(Dimension.X, component.Position.Y);
-            }
-            else if (component.Position.X > Dimension.X)
-            {
-                component.Position = new Vector(0, component.Position.Y);
-            }
-
-            if (component.Position.Y < 0)
-            {
-                component.Position = new Vector(component.Position.X, Dimension.Y);
-            }
-            else if (component.Position.Y > Dimension.Y)
-            {
-                component.Position = new Vector(component.Position.X, 0);
             }
         }
 
@@ -112,6 +92,7 @@
                 {
                     type = EdibleType.RedApple;
                 }
+
                 var apple = new Apple(type, new Vector(x, y));
                 var spot = Players.All(player => !player.Snake.IsInPosition(apple.Position));
                 if (spot)
@@ -159,6 +140,27 @@
             return Players.All(player => player.IsDead);
         }
 
+        private void ShiftComponentToOtherSide(Component component)
+        {
+            if (component.Position.X < 0)
+            {
+                component.Position = new Vector(Dimension.X, component.Position.Y);
+            }
+            else if (component.Position.X >= Dimension.X)
+            {
+                component.Position = new Vector(0, component.Position.Y);
+            }
+
+            if (component.Position.Y < 0)
+            {
+                component.Position = new Vector(component.Position.X, Dimension.Y);
+            }
+            else if (component.Position.Y >= Dimension.Y)
+            {
+                component.Position = new Vector(component.Position.X, 0);
+            }
+        }
+
         private void PositionSnakes()
         {
             foreach (var player in Players)
@@ -189,5 +191,6 @@
                 player.Snake = snake;
             }
         }
+
     }
 }

@@ -23,6 +23,7 @@ namespace SnakeMess
             {
                 return;
             }
+
             Console.Write(" ");
         }
 
@@ -37,6 +38,7 @@ namespace SnakeMess
             {
                 return;
             }
+
             Console.Write(symbol);
         }
 
@@ -44,8 +46,6 @@ namespace SnakeMess
         {
             Console.Clear();
             var optionsList = new List<Option>(options);
-            var width = Console.WindowWidth;
-            var height = Console.WindowHeight;
             var lines = introduction.Length + options.Length + 2;
 
             var writeWidth = introduction.Select(line => line.Length).Concat(new[] { 0 }).Max();
@@ -58,21 +58,15 @@ namespace SnakeMess
             Console.ForegroundColor = ConsoleColor.Magenta;
             for (var i = 0; i < introduction.Length; i++)
             {
-                for (var j = 0; j < introduction[i].Length; j++)
-                {
-                    Console.SetCursorPosition(offset.X + j + 1, offset.Y + i + 1);
-                    Console.Write(introduction[i].ElementAt(j));
-                }
+                    Console.SetCursorPosition(offset.X + 1, offset.Y + i + 1);
+                    Console.Write(introduction[i]);
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             for (var i = 0; i < options.Length; i++)
             {
-                for (var j = 0; j < options[i].Message.Length; j++)
-                {
-                    Console.SetCursorPosition(offset.X + j + 1, offset.Y + i + introduction.Length + 2);
-                    Console.Write(options[i].Message.ElementAt(j));
-                }
+                Console.SetCursorPosition(offset.X + 1, offset.Y + i + introduction.Length + 2);
+                Console.Write(options[i].Message);
             }
 
             for (;;)
@@ -85,23 +79,22 @@ namespace SnakeMess
                 }
             }
         }
+
         public static void PrintControls()
         {
-            var message = "Controls for player ";
-            var keyMessage = "Press any key to continue";
+            const string message = "Controls for player ";
+            const string keyMessage = "Press any key to continue";
             var offset = GetOffset(keyMessage.Length + 2, 8);
-            for (int i = 1; i <= 3; i++)
+            for (var i = 1; i <= 3; i++)
             {
                 Console.Clear();
                 var mapping = Player.GetMappingFor(i);
                 WriteBox(keyMessage.Length + 2, 8, offset);
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 var tempMessage = message + i;
-                for (int j = 0; j < tempMessage.Length; j++)
-                {
-                    Console.SetCursorPosition(offset.X + j + 1, offset.Y + 1);
-                    Console.Write(tempMessage.ElementAt(j));
-                }
+
+                Console.SetCursorPosition(offset.X + 1, offset.Y + 1);
+                Console.Write(tempMessage);
                 Console.SetCursorPosition(offset.X + 1, offset.Y + 2);
                 Console.Write("Up: " + mapping.Up);
                 Console.SetCursorPosition(offset.X + 1, offset.Y + 3);
@@ -115,6 +108,29 @@ namespace SnakeMess
                 Console.Write(keyMessage);
                 Console.ReadKey();
             }
+        }
+
+        public static void PrintScores(List<Snake> snakes)
+        {
+            const string scoreMessage = "Player ";
+            const string keyMessage = "Press any key to continue";
+            var offset = GetOffset(keyMessage.Length + 2, snakes.Count + 10);
+            WriteBox(keyMessage.Length + 2, snakes.Count + 4, offset);
+
+            foreach (var snake in snakes)
+            {
+                var index = snakes.IndexOf(snake);
+                var playerNumber = index + 1;
+                var tempMessage = scoreMessage + playerNumber + ": ";
+                Console.SetCursorPosition(offset.X + 1, offset.Y + index + 1);
+                Console.ForegroundColor = snake.Color;
+                Console.Write(tempMessage + snake.Count());
+            }
+
+            Console.SetCursorPosition(offset.X + 1, offset.Y + snakes.Count + 3);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write(keyMessage);
+            Console.ReadKey();
         }
 
         private static void WriteBox(int writeWidth, int lines, Vector offset)
@@ -139,29 +155,6 @@ namespace SnakeMess
         {
             var offset = new Vector((Console.WindowWidth / 2) - (writeWidth / 2), (Console.WindowHeight / 2) - (lines / 2));
             return offset;
-        }
-
-        public static void PrintScores(List<Snake> snakes)
-        {
-            var message = "Scores:";
-            const string scoreMessage = "Player ";
-            const string keyMessage = "Press any key to continue";
-            var offset = GetOffset(keyMessage.Length + 2, snakes.Count + 10);
-            WriteBox(keyMessage.Length + 2, snakes.Count + 4, offset);
-
-            foreach (var snake in snakes)
-            {
-                int index = snakes.IndexOf(snake);
-                int playerNumber = index + 1;
-                var tempMessage = scoreMessage + playerNumber + ": ";
-                Console.SetCursorPosition(offset.X + 1, offset.Y + index + 1);
-                Console.ForegroundColor = snake.Color;
-                Console.Write(tempMessage + snake.Count());
-            }
-            Console.SetCursorPosition(offset.X + 1, offset.Y + snakes.Count + 3);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write(keyMessage);
-            Console.ReadKey();
         }
     }
 }
