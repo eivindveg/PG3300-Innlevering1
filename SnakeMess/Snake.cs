@@ -19,7 +19,7 @@ namespace SnakeMess
             Add(new SnakeComponent(position, SnakePart.Head));
             ConsoleWriter.WriteToPosition(Color, position, HeadSymbol);
 
-            while (this.Count() <= StartLength)
+            while (this.Count() < StartLength)
             {
                 position = Vector.DirectlyBehind(direction, position);
                 Add(new SnakeComponent(position, SnakePart.Tail));
