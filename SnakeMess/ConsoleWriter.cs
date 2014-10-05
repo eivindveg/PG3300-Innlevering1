@@ -13,5 +13,12 @@ namespace SnakeMess
             Console.SetCursorPosition(position.X, position.Y);
             Console.Write(" ");
         }
+
+        public static void WriteToPosition(ConsoleColor color, Vector position, char symbol)
+        {
+            Console.ForegroundColor = color;
+            Console.SetCursorPosition(position.X, position.Y);
+            Console.Write(symbol);
+        }
     }
 }

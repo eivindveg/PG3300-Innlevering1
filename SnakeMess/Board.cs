@@ -8,7 +8,6 @@
 //------------------------------------------------------------------------------
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
 
     /// <summary>
@@ -55,8 +54,6 @@
 
         public List<Player> Players { get; set; }
 
-        private List<Vector> ReferencePositions { get; set; }
-
         private Random Random { get; set; }
 
         public void ResolvePlayerStatuses()
@@ -93,7 +90,6 @@
                     Apples.Add(apple);
                 }
             }
-            
         }
 
         public bool PositionOutOfBounds(Vector position)
@@ -120,34 +116,27 @@
         {
             foreach (var apple in Apples)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.SetCursorPosition(apple.Position.X, apple.Position.Y);
-                Console.Write("$");
+                ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, '$');
             }
 
             foreach (var player in Players)
             {
-                Console.ForegroundColor = player.Color;
                 foreach (var component in player.Snake)
                 {
-                    Debug.WriteLine(component.Position);
                     try
                     {
-                        Console.SetCursorPosition(component.Position.X, component.Position.Y);
+                        switch (component.Type)
+                        {
+                            case SnakePart.Head:
+                                ConsoleWriter.WriteToPosition(player.Color, component.Position, '@');
+                                break;
+                            case SnakePart.Tail:
+                                ConsoleWriter.WriteToPosition(player.Color, component.Position, 'O');
+                                break;
+                        }
                     }
                     catch (ArgumentOutOfRangeException)
                     {
-                        continue;
-                    }
-
-                    switch (component.Type)
-                    {
-                        case SnakePart.Head:
-                            Console.Write("@");
-                            break;
-                        case SnakePart.Tail:
-                            Console.Write("O");
-                            break;
                     }
                 }
             }
@@ -183,6 +172,7 @@
                         direction = Direction.Up;
                         break;
                 }
+
                 var snake = new Snake(direction, position);
                 player.Snake = snake;
             }
