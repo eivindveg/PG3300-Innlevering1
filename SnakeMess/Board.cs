@@ -70,7 +70,7 @@
 
         public void PlaceApple()
         {
-            while (Apples.Count < 1)
+            do
             {
                 var x = Random.Next(0, Dimension.X);
                 var y = Random.Next(0, Dimension.Y);
@@ -81,7 +81,8 @@
                     Apples.Add(apple);
                     ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, Apple.Symbol);
                 }
-            }
+            } 
+            while (Apples.Count < (Players.Count / 2));
         }
 
         public bool PositionOutOfBounds(Vector position)

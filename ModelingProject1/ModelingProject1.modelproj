@@ -22,13 +22,6 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="SnakeMess.classdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="SnakeMess.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>SnakeMess.classdiagram</DependentUpon>
-    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\ModelingProject1.uml">
       <SubType>Content</SubType>
