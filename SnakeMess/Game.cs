@@ -40,7 +40,6 @@
             var pause = false;
             var timer = new Stopwatch();
             Board.PlaceApple();
-            Board.ReDraw();
             timer.Start();
             while (!gameOver)
             {
@@ -51,39 +50,12 @@
                     continue;
                 }
 
+                Board.ReDraw();
                 timer.Restart();
 
                 MoveSnakesIfAlive();
                 Board.ResolvePlayerStatuses();
-
-                foreach (var player in Board.Players)
-                {
-                    // Variable copy for compiler version compatibility with LINQ scopes
-                    var currentPlayer = player;
-                    foreach (var apple in Board.Apples.Where(apple => apple.Position == currentPlayer.Snake.GetHeadLocation()))
-                    {
-                        Board.RemoveApple(apple);
-
-                        // TODO MAKE ABSOLUTE COUNT FOR ALL COLLIDEABLE OBJECTS
-                        if (player.Snake.Count + 1 >= Board.Dimension.GetArea())
-                        {
-                            // No more room to place apples -- game over.
-                            gameOver = true;
-                        }
-                        else
-                        {
-                            Board.PlaceApple();
-                            player.Snake.Grow();
-                        }
-                    }
-                }
-
-                if (Board.AllPlayersDead())
-                {
-                    gameOver = true;
-                }
-
-                Board.ReDraw();
+                gameOver = Board.ResolveBoardStatus();
             }
         }
 

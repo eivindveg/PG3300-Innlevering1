@@ -10,9 +10,9 @@
         public Snake(Direction direction, Vector position)
         {
             Direction = direction;
-            this.Add(new SnakeComponent(position, SnakePart.Head));
+            Add(new SnakeComponent(position, SnakePart.Head));
 
-            while (this.Count() < StartLength)
+            while (this.Count() <= StartLength)
             {
                 position = Vector.DirectlyBehind(direction, position);
                 Add(new SnakeComponent(position, SnakePart.Tail));

@@ -99,6 +99,17 @@
             return position.X >= Dimension.X || position.Y >= Dimension.Y;
         }
 
+        public bool ResolveBoardStatus()
+        {
+            if (AllPlayersDead())
+            {
+                return true;
+            }
+
+            var componentCount = Players.Select(player => player.Snake).Select(snake => snake.Count()).Sum();
+            return componentCount >= Dimension.GetArea();
+        }
+
         public void RemoveApple(Apple apple)
         {
             if (apple == null)
