@@ -13,21 +13,18 @@
             switch (id)
             {
                 case 1:
-                    Color = ConsoleColor.Green;
                     KeyMap = new KeyMapping(ConsoleKey.UpArrow, ConsoleKey.DownArrow, ConsoleKey.LeftArrow, ConsoleKey.RightArrow);
                     break;
                 case 2:
-                    Color = ConsoleColor.Blue;
                     KeyMap = new KeyMapping(ConsoleKey.W, ConsoleKey.S, ConsoleKey.A, ConsoleKey.D);
                     break;
                 case 3:
-                    Color = ConsoleColor.Magenta;
                     KeyMap = new KeyMapping(ConsoleKey.I, ConsoleKey.K, ConsoleKey.J, ConsoleKey.L);
                     break;
             }
         }
 
-        public ConsoleColor Color { get; set; }
+        
 
 
         public Snake Snake { get; set; }

@@ -35,6 +35,21 @@
 
         private Random Random { get; set; }
 
+        public static ConsoleColor GetColorForPlayer(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return ConsoleColor.Green;
+                case 2:
+                    return ConsoleColor.Blue;
+                case 3:
+                    return ConsoleColor.Magenta;
+                default:
+                    return ConsoleColor.Yellow;
+            }
+        }
+
         public void ResolvePlayerStatuses()
         {
             foreach (var player in Players)
@@ -64,6 +79,7 @@
                 if (spot)
                 {
                     Apples.Add(apple);
+                    ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, '$');
                 }
             }
         }
@@ -99,36 +115,6 @@
             Apples.Remove(apple);
         }
 
-        public void ReDraw()
-        {
-            foreach (var apple in Apples)
-            {
-                ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, '$');
-            }
-
-            foreach (var player in Players)
-            {
-                foreach (var component in player.Snake)
-                {
-                    try
-                    {
-                        switch (component.Type)
-                        {
-                            case SnakePart.Head:
-                                ConsoleWriter.WriteToPosition(player.Color, component.Position, '@');
-                                break;
-                            case SnakePart.Tail:
-                                ConsoleWriter.WriteToPosition(player.Color, component.Position, 'O');
-                                break;
-                        }
-                    }
-                    catch (ArgumentOutOfRangeException)
-                    {
-                    }
-                }
-            }
-        }
-
         public bool AllPlayersDead()
         {
             return Players.All(player => player.IsDead);
@@ -160,7 +146,7 @@
                         break;
                 }
 
-                var snake = new Snake(direction, position);
+                var snake = new Snake(direction, position, GetColorForPlayer(player.Id));
                 player.Snake = snake;
             }
         }

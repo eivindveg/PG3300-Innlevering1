@@ -36,6 +36,7 @@
 
         protected virtual void Play()
         {
+            Console.Clear();
             var gameOver = false;
             var pause = false;
             var timer = new Stopwatch();
@@ -44,7 +45,6 @@
             while (!gameOver)
             {
                 CheckInput(ref gameOver, ref pause);
-                Board.ReDraw();
 
                 if (pause || timer.ElapsedMilliseconds < 100)
                 {

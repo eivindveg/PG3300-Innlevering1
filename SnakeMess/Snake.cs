@@ -1,4 +1,6 @@
-﻿namespace SnakeMess
+﻿using System;
+
+namespace SnakeMess
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -7,15 +9,18 @@
     {
         public const int StartLength = 4;
 
-        public Snake(Direction direction, Vector position)
+        public Snake(Direction direction, Vector position, ConsoleColor color)
         {
+            Color = color;
             Direction = direction;
             Add(new SnakeComponent(position, SnakePart.Head));
+            ConsoleWriter.WriteToPosition(Color, position, '@');
 
             while (this.Count() <= StartLength)
             {
                 position = Vector.DirectlyBehind(direction, position);
                 Add(new SnakeComponent(position, SnakePart.Tail));
+                ConsoleWriter.WriteToPosition(Color, position, 'O');
             }
         }
 
@@ -23,6 +28,8 @@
         public Player Player { get; set; }
 
         public Direction Direction { get; set; }
+
+        public ConsoleColor Color { get; set; }
 
         public Direction LastDirection { get; private set; }
 
@@ -50,6 +57,8 @@
             }
             
             LastDirection = Direction;
+            ConsoleWriter.WriteToPosition(Color, newLastTailPosition, 'O');
+            ConsoleWriter.WriteToPosition(Color, head.Position, '@');
             return appleToEat != null;
         }
 

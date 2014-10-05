@@ -17,7 +17,14 @@
         public static void WriteToPosition(ConsoleColor color, Vector position, char symbol)
         {
             Console.ForegroundColor = color;
-            Console.SetCursorPosition(position.X, position.Y);
+            try
+            {
+                Console.SetCursorPosition(position.X, position.Y);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return;
+            }
             Console.Write(symbol);
         }
     }
