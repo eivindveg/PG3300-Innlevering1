@@ -49,6 +49,7 @@
     <Compile Include="ConsoleWriter.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="EdibleType.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="SnakePart.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ICollideable.cs" />

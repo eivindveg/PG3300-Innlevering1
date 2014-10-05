@@ -39,22 +39,18 @@
             if (key == KeyMap.Up && Snake.LastDirection != Direction.Down)
             {
                 Snake.Direction = Direction.Up;
-                Debug.Write("Up");
             }
             else if (key == KeyMap.Down && Snake.LastDirection != Direction.Up)
             {
                 Snake.Direction = Direction.Down;
-                Debug.Write("Down");
             }
             else if (key == KeyMap.Left && Snake.LastDirection != Direction.Right)
             {
                 Snake.Direction = Direction.Left;
-                Debug.Write("Left");
             }
             else if (key == KeyMap.Right && Snake.LastDirection != Direction.Left)
             {
                 Snake.Direction = Direction.Right;
-                Debug.Write("Right");
             }
         }
     }

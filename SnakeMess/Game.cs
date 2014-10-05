@@ -1,4 +1,6 @@
-﻿namespace SnakeMess
+﻿using System.Threading;
+
+namespace SnakeMess
 {
     using System;
     using System.Collections.Generic;
@@ -7,6 +9,12 @@
 
     public class Game
     {
+        public static readonly string[] Introduction =
+        {
+            "Welcome to SnakeUnmess",
+            "Select number of players:"
+        };
+
         public Game(int numPlayers, Vector boardSize)
         {
             var players = new List<Player>(numPlayers);
@@ -28,7 +36,14 @@
         public static void Main(string[] args)
         {
             var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
-            var game = new Game(1, dimension);
+            var startOptions = new[]
+            {
+                new Option("1 player", ConsoleKey.D1, 1),
+                new Option("2 players", ConsoleKey.D2, 2),
+                new Option("3 players", ConsoleKey.D3, 3), 
+            };
+            var players = ConsoleWriter.WriteOptions(Introduction, startOptions);
+            var game = new Game(players, dimension);
             game.Play();
         }
 
