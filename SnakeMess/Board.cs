@@ -7,7 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
     using System;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
@@ -56,6 +55,8 @@
 
         public List<Player> Players { get; set; }
 
+        private List<Vector> ReferencePositions { get; set; }
+
         private Random Random { get; set; }
 
         public void ResolvePlayerStatuses()
@@ -102,12 +103,7 @@
                 return true;
             }
 
-            if (position.X >= Dimension.X || position.Y >= Dimension.Y)
-            {
-                return true;
-            }
-
-            return false;
+            return position.X >= Dimension.X || position.Y >= Dimension.Y;
         }
 
         public void RemoveApple(Apple apple)
@@ -122,8 +118,6 @@
 
         public void ReDraw()
         {
-            Console.Clear();
-
             foreach (var apple in Apples)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -161,12 +155,7 @@
 
         public bool AllPlayersDead()
         {
-            var allDead = true;
-            foreach (var player in Players.Where(player => !player.IsDead))
-            {
-                allDead = false;
-            }
-            return allDead;
+            return Players.All(player => player.IsDead);
         }
 
         private void PositionSnakes()

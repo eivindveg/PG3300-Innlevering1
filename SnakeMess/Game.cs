@@ -27,6 +27,8 @@
 
         public static void Main(string[] args)
         {
+            Console.WindowWidth = 45;
+            Console.WindowHeight = 30;
             var dimension = new Vector(Console.WindowWidth, Console.WindowHeight);
             var game = new Game(1, dimension);
             game.Play();

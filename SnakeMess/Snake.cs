@@ -33,7 +33,6 @@
             var oldLastTail = this.Last();
             var head = this.First();
             var newLastTailPosition = head.Position;
-            oldLastTail.Position = this.First().Position;
             
             head.Position = Vector.DirectlyAhead(Direction, head.Position);
             var appleToEat = apples.FirstOrDefault(apple => apple.IsInPosition(head.Position));
@@ -45,6 +44,7 @@
             else
             {
                 Remove(oldLastTail);
+                ConsoleWriter.BlankLocation(oldLastTail.Position);
                 oldLastTail.Position = newLastTailPosition;
                 Insert(1, oldLastTail);
             }

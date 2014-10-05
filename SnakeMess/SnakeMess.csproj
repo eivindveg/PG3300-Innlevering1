@@ -46,6 +46,7 @@
     <Compile Include="Apple.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Component.cs" />
+    <Compile Include="ConsoleWriter.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="EdibleType.cs" />
     <Compile Include="SnakePart.cs" />
