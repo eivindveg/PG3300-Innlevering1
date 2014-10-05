@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
 
-
     public class Board
     {
         public Board(Vector dimension, List<Player> players)
@@ -27,7 +26,7 @@
             Apples = new List<Apple>();
             this.PositionSnakes();
         }
-        
+
         public Vector Dimension { get; private set; }
 
         public List<Apple> Apples { get; set; }
@@ -47,7 +46,7 @@
                     player.IsDead = true;
                 }
 
-                foreach (var otherPlayer in from otherPlayer in this.Players.Where(otherPlayer => otherPlayer.Id != currentPlayer.Id) from component in otherPlayer.Snake.Where(component => component.Position == currentPlayer.Snake.GetHeadLocation()) select otherPlayer)
+                foreach (var otherPlayer in Players.Where(otherPlayer => otherPlayer.Id != currentPlayer.Id).Where(otherPlayer => otherPlayer.Snake.Any(component => component.Position == currentPlayer.Snake.GetHeadLocation())))
                 {
                     player.IsDead = true;
                 }
@@ -77,6 +76,17 @@
             }
 
             return position.X >= Dimension.X || position.Y >= Dimension.Y;
+        }
+
+        public bool ResolveBoardStatus()
+        {
+            if (AllPlayersDead())
+            {
+                return true;
+            }
+
+            var componentCount = Players.Select(player => player.Snake).Select(snake => snake.Count()).Sum();
+            return componentCount >= Dimension.GetArea();
         }
 
         public void RemoveApple(Apple apple)
