@@ -2,6 +2,7 @@
 {
     public class Apple : Component, ICollideable
     {
+        public const char Symbol = '$';
 
         public Apple(EdibleType type, Vector position) : base(position)
         {

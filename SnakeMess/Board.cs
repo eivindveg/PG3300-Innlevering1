@@ -79,7 +79,7 @@
                 if (spot)
                 {
                     Apples.Add(apple);
-                    ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, '$');
+                    ConsoleWriter.WriteToPosition(ConsoleColor.Red, apple.Position, Apple.Symbol);
                 }
             }
         }

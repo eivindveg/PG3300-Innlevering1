@@ -8,19 +8,21 @@ namespace SnakeMess
     public class Snake : List<SnakeComponent>, ICollideable
     {
         public const int StartLength = 4;
+        public const char TailSymbol = 'O';
+        public const char HeadSymbol = '@';
 
         public Snake(Direction direction, Vector position, ConsoleColor color)
         {
             Color = color;
             Direction = direction;
             Add(new SnakeComponent(position, SnakePart.Head));
-            ConsoleWriter.WriteToPosition(Color, position, '@');
+            ConsoleWriter.WriteToPosition(Color, position, HeadSymbol);
 
             while (this.Count() <= StartLength)
             {
                 position = Vector.DirectlyBehind(direction, position);
                 Add(new SnakeComponent(position, SnakePart.Tail));
-                ConsoleWriter.WriteToPosition(Color, position, 'O');
+                ConsoleWriter.WriteToPosition(Color, position, TailSymbol);
             }
         }
 
@@ -57,8 +59,8 @@ namespace SnakeMess
             }
             
             LastDirection = Direction;
-            ConsoleWriter.WriteToPosition(Color, newLastTailPosition, 'O');
-            ConsoleWriter.WriteToPosition(Color, head.Position, '@');
+            ConsoleWriter.WriteToPosition(Color, newLastTailPosition, TailSymbol);
+            ConsoleWriter.WriteToPosition(Color, head.Position, HeadSymbol);
             return appleToEat != null;
         }
 

@@ -24,9 +24,6 @@
             }
         }
 
-        
-
-
         public Snake Snake { get; set; }
 
         public bool IsDead { get; set; }
