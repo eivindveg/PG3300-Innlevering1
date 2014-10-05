@@ -67,12 +67,9 @@
                     player.IsDead = true;
                 }
 
-                foreach (var otherPlayer in Players.Where(otherPlayer => otherPlayer.Id != currentPlayer.Id))
+                foreach (var otherPlayer in Players.Where(otherPlayer => otherPlayer.Id != currentPlayer.Id).Where(otherPlayer => otherPlayer.Snake.Any(component => component.Position == currentPlayer.Snake.GetHeadLocation())))
                 {
-                    foreach (var component in otherPlayer.Snake.Where(component => component.Position == currentPlayer.Snake.GetHeadLocation()))
-                    {
-                        player.IsDead = true;
-                    }
+                    player.IsDead = true;
                 }
             }
         }

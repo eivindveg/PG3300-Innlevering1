@@ -53,11 +53,9 @@
     <Compile Include="Game.cs" />
     <Compile Include="ICollideable.cs" />
     <Compile Include="KeyMapping.cs" />
-    <Compile Include="MoveEvent.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Snake.cs" />
     <Compile Include="SnakeComponent.cs" />
-    <Compile Include="SnakeMess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vector.cs" />
   </ItemGroup>
