@@ -44,13 +44,13 @@
             while (!gameOver)
             {
                 CheckInput(ref gameOver, ref pause);
+                Board.ReDraw();
 
                 if (pause || timer.ElapsedMilliseconds < 100)
                 {
                     continue;
                 }
-
-                Board.ReDraw();
+                
                 timer.Restart();
 
                 MoveSnakesIfAlive();
